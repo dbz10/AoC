@@ -25,7 +25,6 @@ func readFileToInt(filePath string) []int {
 		b[i], _ = strconv.Atoi(value)
 	}
 	return b
-
 }
 
 func countIncreases(arr []int, windowSize int) int {

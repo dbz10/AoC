@@ -96,4 +96,5 @@ func readFile(filePath string) ([][]string, error) {
 
 func wrapIndex(idx int, dimSize int) int {
 	return int(math.Mod(float64(idx), float64(dimSize)))
+	// more simply for integers could also be idx - (idx/dimSize) * dimSize
 }

@@ -9,6 +9,11 @@ import (
 	"strings"
 )
 
+// after completing this, I learned about the function strings.Count!
+// and about fmt.Sscanf which can parse a string into variables by format!
+// and we could have used a struct to handle the data,
+// which might have been a nicer approach.
+
 func main() {
 	file, err := os.Open("inputs/day02_p1.txt")
 	if err != nil {

@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"math"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -38,7 +41,29 @@ func main() {
 			earliestTimestampId = wait * v
 		}
 	}
-	println(earliestTimestampId)
+	fmt.Printf("Part One: %d.\n", earliestTimestampId)
 
 	// Part two is somewhat nontrivial....
+	// Brute force?
+	sort.Sort(sort.Reverse(sort.IntSlice(busLines)))
+	var trial int
+	for n := 1; n < 1e10; n++ {
+		trial = n*busLines[0] + busLines[0] - busLines[len(busLines)-1]
+		if checkSequenceCongruence(trial, busLines[1:]) {
+			fmt.Printf("Found an answer! %d.\n", trial)
+			break
+		}
+	}
+
+	log.Fatal("Part 2 by brute force... did not get there.")
+
+}
+
+func checkSequenceCongruence(n int, s []int) bool {
+	for _, v := range s {
+		if int(math.Mod(float64(n), float64(v))) != v-s[len(s)-1] {
+			return false
+		}
+	}
+	return true
 }

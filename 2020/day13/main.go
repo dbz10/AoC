@@ -1,11 +1,11 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"math"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
@@ -22,6 +22,8 @@ func main() {
 	}
 
 	busLines := []int{}
+	lineNumber := []int{}
+	var ln int
 	for _, ch := range strings.Split(strings.Split(string(contents), "\n")[1], ",") {
 		if ch != "x" {
 			lineNo, err := strconv.Atoi(ch)
@@ -29,7 +31,9 @@ func main() {
 				log.Fatal(err)
 			}
 			busLines = append(busLines, lineNo)
+			lineNumber = append(lineNumber, ln)
 		}
+		ln++
 	}
 
 	shortestWait := (busLines[0]*(eeta/busLines[0]+1) - eeta)
@@ -44,26 +48,68 @@ func main() {
 	fmt.Printf("Part One: %d.\n", earliestTimestampId)
 
 	// Part two is somewhat nontrivial....
-	// Brute force?
-	sort.Sort(sort.Reverse(sort.IntSlice(busLines)))
-	var trial int
-	for n := 1; n < 1e10; n++ {
-		trial = n*busLines[0] + busLines[0] - busLines[len(busLines)-1]
-		if checkSequenceCongruence(trial, busLines[1:]) {
-			fmt.Printf("Found an answer! %d.\n", trial)
-			break
+	// I think this is roughly how the CRT approach goes
+	// Man this was no joke.
+
+	mAll := float64(1)
+	baseFactors := []int64{}
+	for i := range busLines {
+		mAll *= float64(busLines[i])
+		base := int64(1)
+		for _, v := range busLines[:i] {
+			base *= int64(v)
 		}
+		for _, v := range busLines[i+1:] {
+			base *= int64(v)
+		}
+		baseFactors = append(baseFactors, base)
+
 	}
 
-	log.Fatal("Part 2 by brute force... did not get there.")
+	solvedFactors := []int64{}
+
+	// Now for each after the first element, brute force search
+	// for multiple to get the desired mod after division by the value.
+
+	// should have t + l mod b = 0
+	// in other words t mod b = -l
+	// in other words t mod b = b - l
+	for i := range busLines {
+
+		multiple, err := searchForModMultiplier(
+			baseFactors[i],
+			busLines[i],
+			busLines[i]-lineNumber[i])
+		if err != nil {
+			log.Fatal(err)
+		}
+		solvedFactors = append(solvedFactors, baseFactors[i]*int64(multiple))
+	}
+
+	var answerMaybe float64
+	for _, v := range solvedFactors {
+		answerMaybe += float64(v)
+	}
+
+	answerMaybe = answerMaybe - math.Floor(answerMaybe/float64(mAll))*float64(mAll)
+
+	fmt.Printf("Part two, could it be... %d\n", int(answerMaybe))
 
 }
 
-func checkSequenceCongruence(n int, s []int) bool {
-	for _, v := range s {
-		if int(math.Mod(float64(n), float64(v))) != v-s[len(s)-1] {
-			return false
+func searchForModMultiplier(start int64, divisor int, targetModulus int) (int, error) {
+	// Of course this can be done more efficiently with modular arithmetic
+	// but let me get any kind of working solution first
+
+	decomposedTargetModulus := int(math.Mod(float64(targetModulus), float64(divisor)))
+	if decomposedTargetModulus < 0.0 {
+		decomposedTargetModulus += divisor
+	}
+
+	for i := int64(1); i <= int64(divisor); i++ {
+		if int(math.Mod(float64(start*i), float64(divisor))) == decomposedTargetModulus {
+			return int(i), nil
 		}
 	}
-	return true
+	return -1, errors.New("could not find a value, for some reason")
 }

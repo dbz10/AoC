@@ -55,3 +55,18 @@ type ship struct {
 	y       int
 	bearing float64
 }
+
+type waypoint struct {
+	xRel float64
+	yRel float64
+}
+
+func (s *ship) Forward(n int) {
+	dx, dy := float64(n)*math.Cos(s.bearing*math.Pi/180.0), float64(n)*math.Sin(s.bearing*math.Pi/180.0)
+	s.x += int(dx)
+	s.y += int(dy)
+}
+
+func (w *waypoint) Rotate(d float64) {
+	w.xRel, w.yRel = w.xRel*math.Cos(d*math.Pi/180.0)-w.yRel*math.Sin(d*math.Pi/180), w.xRel*math.Sin(d*math.Pi/180)+w.yRel*math.Cos(d*math.Pi/180.0)
+}

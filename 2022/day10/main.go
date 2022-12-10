@@ -48,9 +48,9 @@ func main() {
 	for i, x := range signal {
 		hor := i % screenWidth
 		if hor >= x-1 && hor <= x+1 {
-			fmt.Print("#")
+			fmt.Print("█")
 		} else {
-			fmt.Print(".")
+			fmt.Print(" ")
 		}
 		if hor == 39 {
 			fmt.Print("\n")

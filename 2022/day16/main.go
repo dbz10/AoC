@@ -11,9 +11,10 @@ import (
 )
 
 type node struct {
-	name        string
-	flowRate    int
-	connections []*node
+	name          string
+	flowRate      int
+	connections   []*node
+	exclusionZone []string
 }
 
 func (n node) String() string {
@@ -28,6 +29,20 @@ func main() {
 
 	nodes := parseConnections(string(contents))
 	pairwiseDistances := enumerateDistances(nodes)
+
+	for _, n := range nodes {
+		nnn := map[string]struct{}{}
+		for _, x := range n.connections {
+			for _, y := range x.connections {
+				nnn[y.name] = struct{}{}
+			}
+		}
+		exclusionZone := []string{}
+		for key := range nnn {
+			exclusionZone = append(exclusionZone, key)
+		}
+		n.exclusionZone = exclusionZone
+	}
 
 	// This seems kind of nontrivial. I'm not sure what to do
 	// other than DFS
@@ -47,7 +62,7 @@ func main() {
 	fmt.Println("took time:", time.Since(t0))
 
 	// Part Two, may god have mercy on my soul
-	dfsMaxScoreMaybePartTwo, pathPartTwo := pairDfsSearch("AA", "AA", 0, 0, nRounds-4, candidateNodes, pairwiseDistances)
+	dfsMaxScoreMaybePartTwo, pathPartTwo := pairDfsSearch("AA", "AA", 0, 0, nRounds-4, candidateNodes, candidateNodes, pairwiseDistances)
 	fmt.Printf("Part Two: %d pressure released\n", dfsMaxScoreMaybePartTwo)
 	fmt.Println(pathPartTwo)
 	fmt.Println("took time:", time.Since(t0))
@@ -108,7 +123,7 @@ func pairDfsSearch(
 	selfDestination, elephantDestination string,
 	selfTimeToArrive, elephantTimeToArrive int,
 	remainingTurns int,
-	candidateNodes []node,
+	selfCandidates, elephantCandidates []node,
 	distances map[string]map[string]int,
 ) (int, []string) {
 	// Basically my solution consists of DFS over interleaves of
@@ -120,6 +135,17 @@ func pairDfsSearch(
 	// also remove the vicinity of X from my own candidate list, since
 	// logically it cannot be optimal for me and the elephant to be
 	// opening nodes in the same area. Anyways...
+
+	// Ok I did end up implementing this with a radius 2 exclusion zone
+	// and it reduced the time from ~3 minutes down to but
+	// I'm not sure how general it is. With very highly connected
+	// graph it would almost certainly fail.
+	// And somehow a radius 3 exclusion zone becomes slower again.
+	// To get further performance, probably requires a slightly
+	// different approach?
+
+	// For further optimizations, I would keep track of the maximum
+	// score found so far and prune based on that.
 
 	// If only one person is free at the time, then it's a single
 	// person depth first search as before.
@@ -133,7 +159,7 @@ func pairDfsSearch(
 	// drastically reduced the search space but it finishes in ~3 minutes
 	// and I'm already behind so I must go on!
 
-	if len(candidateNodes) == 0 {
+	if max(len(selfCandidates), len(elephantCandidates)) == 0 {
 		return 0, []string{}
 	}
 
@@ -143,13 +169,14 @@ func pairDfsSearch(
 		// Then I have arrived, I am current at selfDestination
 		// and I am going to check for the next node
 
-		for i, next := range candidateNodes {
+		for i, next := range selfCandidates {
 			timeToOpen := distances[selfDestination][next.name] + 1
 			if timeToOpen > remainingTurns {
 				continue
 			}
 			thisNodeScore := next.flowRate * (remainingTurns - timeToOpen)
-			nextCandidates := removeFromSlice(candidateNodes, i)
+			nextCandidates := removeFromSlice(selfCandidates, i)
+			nextElephantCandidates := removeExclusionZone(elephantCandidates, next)
 			selfTimeToArrive = timeToOpen
 			timeUntilNextEvent := min(selfTimeToArrive, elephantTimeToArrive)
 			remainingScore, remainingPath := pairDfsSearch(
@@ -159,6 +186,7 @@ func pairDfsSearch(
 				elephantTimeToArrive-timeUntilNextEvent,
 				remainingTurns-timeUntilNextEvent,
 				nextCandidates,
+				nextElephantCandidates,
 				distances,
 			)
 			candidateScores = append(candidateScores, tail{next.name, thisNodeScore + remainingScore, remainingPath})
@@ -167,13 +195,14 @@ func pairDfsSearch(
 		// Then the elephant has arrived at elephantDestination
 		// and he will go to check for the next node
 
-		for i, next := range candidateNodes {
+		for i, next := range elephantCandidates {
 			timeToOpen := distances[elephantDestination][next.name] + 1
 			if timeToOpen > remainingTurns {
 				continue
 			}
 			thisNodeScore := next.flowRate * (remainingTurns - timeToOpen)
-			nextCandidates := removeFromSlice(candidateNodes, i)
+			nextCandidates := removeFromSlice(elephantCandidates, i)
+			nextSelfCandidates := removeExclusionZone(selfCandidates, next)
 			elephantTimeToArrive = timeToOpen
 			timeUntilNextEvent := min(selfTimeToArrive, elephantTimeToArrive)
 			remainingScore, remainingPath := pairDfsSearch(
@@ -182,6 +211,7 @@ func pairDfsSearch(
 				selfTimeToArrive-timeUntilNextEvent,
 				elephantTimeToArrive-timeUntilNextEvent,
 				remainingTurns-timeUntilNextEvent,
+				nextSelfCandidates,
 				nextCandidates,
 				distances,
 			)
@@ -213,11 +243,40 @@ func removeFromSlice(nn []node, i int) []node {
 	return out
 }
 
+func removeExclusionZone(nn []node, n node) []node {
+	// construct the set of next nearest neighbors
+
+	out := []node{}
+	for _, other := range nn {
+		if !contains(n.exclusionZone, other.name) {
+			out = append(out, other)
+		}
+
+	}
+	return out
+}
+
+func contains(ss []string, s string) bool {
+	for _, sp := range ss {
+		if sp == s {
+			return true
+		}
+	}
+	return false
+}
+
 func min(a, b int) int {
 	if a < b {
 		return a
 	}
 	return b
+}
+
+func max(a, b int) int {
+	if a < b {
+		return b
+	}
+	return a
 }
 
 func enumerateDistances(nodes map[string]*node) map[string]map[string]int {

@@ -127,7 +127,6 @@ func (self *node) stitch(n int) {
 		for i := 0; i < -n+1; i++ {
 			move = move.l
 		}
-
 	}
 	// little bit tricky here
 	// first connect across where self used to be

@@ -54,46 +54,71 @@ func main() {
 	xMin := xs[0]
 	yMin := ys[0]
 	zMin := zs[0]
+	xMax := xs[len(xs)-1]
+	yMax := ys[len(ys)-1]
+	zMax := zs[len(zs)-1]
 
 	cursor := coord{xMin - 2, yMin - 2, zMin - 2}
 	for {
 		cursor.x++
 		if cube[cursor] {
+			cursor.x--
 			break
 		}
 		cursor.y++
 		if cube[cursor] {
+			cursor.y--
 			break
 		}
 		cursor.z++
 		if cube[cursor] {
+			cursor.z--
 			break
 		}
 	}
-	fmt.Println(cursor)
 
 	outerEdge := map[coord]bool{}
 	checked := map[coord]bool{}
 	outerEdge[cursor] = true
+
 	// breadth first search
 	queue := unvisitedSurfaceNeighbors(cursor, checked, cube)
-	fmt.Println(queue)
-
-	for len(queue) > 0 {
-		// time.Sleep(500 * time.Millisecond)
+	for counter := 0; len(queue) > 0; counter++ {
+		if counter%100000 == 0 {
+			fmt.Println("current queue length:", len(queue))
+		}
 		head := queue[0]
 		outerEdge[head] = true
 		queue = append(queue, unvisitedSurfaceNeighbors(head, checked, cube)...)
 		queue = queue[1:]
-		fmt.Println(queue)
 	}
 
-	fmt.Println(outerEdge)
-	fmt.Println(len(outerEdge))
+	// Rendering 2d slices of the rock for
+	// fun and debugging
+	for z := zMin - 1; z <= zMax+1; z++ {
+		fmt.Println("z=", z)
+		for y := yMin - 1; y <= yMax+1; y++ {
+			for x := xMin - 1; x <= xMax+1; x++ {
+				if cube[coord{x, y, z}] {
+					fmt.Print("#")
+				} else if outerEdge[coord{x, y, z}] {
+					fmt.Print("@")
+				} else {
+					fmt.Print(".")
+				}
+			}
+			fmt.Println()
+		}
+		fmt.Print("\n\n")
+	}
 
 	var ea int
 	for key := range outerEdge {
-		ea += countEmptyNeighbors(key, cube)
+		for _, n := range generateNeighbors(key) {
+			if cube[n] {
+				ea++
+			}
+		}
 	}
 
 	fmt.Println("size of the outer edge is ", ea)
@@ -101,11 +126,24 @@ func main() {
 
 func unvisitedSurfaceNeighbors(c coord, checked map[coord]bool, cube map[coord]bool) []coord {
 	out := []coord{}
-	allNeighbors := generateNeighbors(c)
-	for _, n := range allNeighbors {
-		if !checked[n] && countEmptyNeighbors(n, cube) > 0 && cube[n] {
-			checked[n] = true
+	for _, n := range generateNeighbors(c) {
+		if !checked[n] && countEmptyNeighbors(n, cube) < 6 && !cube[n] {
 			out = append(out, n)
+			// we added it to the queue so it will have been visited
+			// by the time we get back to this function
+			checked[n] = true
+
+		}
+		if !cube[n] {
+			// yeah this ended up being kind of ugly
+			// we have to explore next nearest neighbors
+			// but only through air, not through rock.
+			for _, nn := range generateNeighbors(n) {
+				if !checked[nn] && countEmptyNeighbors(nn, cube) < 6 && !cube[nn] {
+					out = append(out, nn)
+					checked[nn] = true
+				}
+			}
 		}
 	}
 	checked[c] = true
@@ -114,13 +152,10 @@ func unvisitedSurfaceNeighbors(c coord, checked map[coord]bool, cube map[coord]b
 
 func generateNeighbors(c coord) []coord {
 	out := []coord{}
-	for _, dx := range []int{-1, 0, 1} {
-		for _, dy := range []int{-1, 0, 1} {
-			for _, dz := range []int{-1, 0, 1} {
-				out = append(out, coord{c.x + dx, c.y + dy, c.z + dz})
-
-			}
-		}
+	for _, d := range []int{-1, 1} {
+		out = append(out, coord{c.x + d, c.y, c.z})
+		out = append(out, coord{c.x, c.y + d, c.z})
+		out = append(out, coord{c.x, c.y, c.z + d})
 	}
 	return out
 }

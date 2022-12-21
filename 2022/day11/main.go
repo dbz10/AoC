@@ -37,7 +37,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	monkeys := loadMonkeys(contents)
+	monkeys, _ := loadMonkeys(contents)
 
 	rounds := 20
 	for i := 0; i < rounds; i++ {
@@ -45,7 +45,7 @@ func main() {
 			for len(monkeys[m].q) > 0 {
 				monkeys[m].itemsInspected++
 				v := monkeys[m].q.pop()
-				v = monkeys[m].operation(v)
+				v = monkeys[m].operation(v) / 3
 				nm := monkeys[m].chooseNextMonkey(v)
 				monkeys[nm].q.push(v)
 			}
@@ -58,11 +58,29 @@ func main() {
 	fmt.Printf("Part One: monkey business level after 20 rounds is %d\n", monkeyBusiness)
 
 	// Part Two
+	monkeys, monkeyGCD := loadMonkeys(contents)
+	rounds = 10000
+	for i := 0; i < rounds; i++ {
+		for m := range monkeys {
+			for len(monkeys[m].q) > 0 {
+				monkeys[m].itemsInspected++
+				v := monkeys[m].q.pop()
+				v = monkeys[m].operation(v) % monkeyGCD
+				nm := monkeys[m].chooseNextMonkey(v)
+				monkeys[nm].q.push(v)
+			}
+		}
+	}
+	// Sort Descending
+	sort.Slice(monkeys, func(i, j int) bool { return monkeys[i].itemsInspected > monkeys[j].itemsInspected })
+	monkeyBusiness = monkeys[0].itemsInspected * monkeys[1].itemsInspected
+	fmt.Printf("Part Two: monkey business level after 10000 rounds with no worry reduction is dire... %d\n", monkeyBusiness)
 
 }
 
-func loadMonkeys(contents []byte) []monkey {
+func loadMonkeys(contents []byte) ([]monkey, int) {
 	monkeys := []monkey{}
+	monkeyGCD := 1
 
 	for _, block := range strings.Split(string(contents), "\n\n") {
 		m := monkey{}
@@ -84,18 +102,20 @@ func loadMonkeys(contents []byte) []monkey {
 		var op string
 		var constant int
 		if strings.TrimSpace(operationLine) == "Operation: new = old * old" {
-			m.operation = func(i int) int { return (i * i / 3) }
+			m.operation = func(i int) int { return (i * i) }
 		} else {
 			fmt.Sscanf(strings.TrimSpace(operationLine), "Operation: new = old %s %d", &op, &constant)
 			if op == "*" {
-				m.operation = func(i int) int { return (i * constant / 3) }
+				m.operation = func(i int) int { return (i * constant) }
 			} else {
-				m.operation = func(i int) int { return (i + constant) / 3 }
+				m.operation = func(i int) int { return (i + constant) }
 			}
 		}
 
 		var divisor int
 		fmt.Sscanf(strings.TrimSpace(testLine), "Test: divisible by %d", &divisor)
+		monkeyGCD *= divisor
+
 		var monkeyT, monkeyF int
 		fmt.Sscanf(strings.TrimSpace(ifTrue), "If true: throw to monkey %d", &monkeyT)
 		fmt.Sscanf(strings.TrimSpace(ifFalse), "If false: throw to monkey %d", &monkeyF)
@@ -110,5 +130,5 @@ func loadMonkeys(contents []byte) []monkey {
 		monkeys = append(monkeys, m)
 	}
 
-	return monkeys
+	return monkeys, monkeyGCD
 }

@@ -37,6 +37,7 @@ func main() {
 	// to try implementing an alternating jump and scan approach...?
 
 	// it worked great!!!
+	// in retrospect, this is basically just newton's method
 
 	var left, right, humanSide, nonHumanSide string
 	left = strings.Split(monkeys.monkeyDo["root"], " ")[0]

@@ -21,12 +21,6 @@ type block struct {
 	offsets []coord // displacement to all the other segments in the block
 }
 
-type state struct {
-	// blockStateEncoding int
-	gustIndex int
-	nextRock  int
-}
-
 func (b block) String() string {
 	base := fmt.Sprintf("Origin: %v, Positions: ", b.origin)
 	for _, o := range b.offsets {
@@ -89,8 +83,6 @@ func main() {
 				allRock[rock.origin.plus(offset)] = true
 				maxRockHeight = max(rock.origin.plus(offset).y, maxRockHeight)
 			}
-			// check if we've reached a cycle. we only need to measure this once.
-
 			// generate a new rock
 			rock = newRock(rockIterator%len(rockTypes), maxRockHeight, rockTypes)
 			rockIterator++
@@ -108,16 +100,22 @@ func main() {
 	// a) the time (measured in amount of rocks landed) to reach the beginning of a cycle
 	// b) the length of the cycle (in rocks landed)
 
-	// A state can be represented by three labels
-	// 1. An encoding of the state of the top 4 rock layer
-	// 2. The index in the "gust" array
-	// 3. The next rock about to fall
+	// A state can apparently be represented by only two labels
+	// 1. The index in the "gust" array
+	// 2. The next rock about to fall
 
-	type memoInfo struct {
+	type state struct {
+		gustIndex, nextRock int
+	}
+
+	type stateInfo struct {
 		rocksLanded, rockHeight int
 	}
-	stateMemoization := map[state]memoInfo{}
 
+	memo := map[state]stateInfo{}
+	var cycleLengthOffset, cycleHeightOffset, cycleLength, cycleHeight int
+
+	// reset the problem
 	rockIterator = 0
 	landedRocks = 0
 	maxRockHeight = 0
@@ -128,61 +126,73 @@ func main() {
 	rock = newRock(rockIterator, maxRockHeight, rockTypes)
 	rockIterator++
 
-	firstRepetitionSeen := false
-	firstRepeatedState := state{8, 2}
-
-	cycleMemoization := map[int]int{}
-	cycleCounter := 0
-	inCycle := false
-
 	for round := 0; round < 1000000; round++ {
 		windDirection := wind[round%len(wind)]
 		rock = tryMoveLR(rock, allRock, windDirection)
 		rock, err = tryMoveDown(rock, allRock)
 
 		if err != nil {
+
 			// update the set with all rock locations and max rock height
 			landedRocks++
 			for _, offset := range rock.offsets {
 				allRock[rock.origin.plus(offset)] = true
 				maxRockHeight = max(rock.origin.plus(offset).y, maxRockHeight)
 			}
+			// check for a cycle and memorize the state
+			currentState := state{gustIndex: round % len(wind), nextRock: rockIterator % len(rockTypes)}
+			currentInfo := stateInfo{rocksLanded: landedRocks, rockHeight: maxRockHeight}
 
-			currentState := state{
-				// blockStateEncoding: rockState,
-				gustIndex: round % len(wind),
-				nextRock:  rockIterator % len(rockTypes),
+			previousInfo, exists := memo[currentState]
+			if exists {
+				cycleLengthOffset = previousInfo.rocksLanded
+				cycleHeightOffset = previousInfo.rockHeight
+				cycleLength = landedRocks - previousInfo.rocksLanded
+				cycleHeight = maxRockHeight - previousInfo.rockHeight
+
+				// further check if this cycle can get us exactly to the target
+				cycleFinalRocks := cycleLengthOffset + cycleLength*((1000000000000-cycleLengthOffset)/cycleLength)
+				if cycleFinalRocks == 1000000000000 {
+					break
+				}
 			}
-
-			if firstRepetitionSeen && currentState == firstRepeatedState {
-				firstRepeatedState = currentState
-				fmt.Printf("Since the last %d was seen, %d more rocks landed and %d additional height was added\n",
-					currentState, landedRocks-stateMemoization[currentState].rocksLanded, maxRockHeight-stateMemoization[currentState].rockHeight)
-				break
-			}
-
-			if stateMemoization[currentState].rocksLanded > 0 && !firstRepetitionSeen {
-				firstRepeatedState = currentState
-				firstRepetitionSeen = true
-				inCycle = true
-				fmt.Println("Numbers at first repetition")
-				fmt.Println(maxRockHeight, "height")
-				fmt.Println(landedRocks, "landed rocks")
-			}
-
-			if inCycle {
-				cycleMemoization[cycleCounter] = maxRockHeight
-				cycleCounter++
-			}
-
-			stateMemoization[currentState] = memoInfo{landedRocks, maxRockHeight}
+			memo[currentState] = currentInfo
 
 			// generate a new rock
 			rock = newRock(rockIterator%len(rockTypes), maxRockHeight, rockTypes)
 			rockIterator++
 		}
 	}
-	fmt.Println(cycleMemoization[1188] - cycleMemoization[0])
+
+	fmt.Printf(
+		"Cycle Beginning Offset %d, Cycle Height Offset %d, Cycle Length %d, Cycle Height %d\n",
+		cycleLengthOffset,
+		cycleHeightOffset,
+		cycleLength,
+		cycleHeight,
+	)
+
+	cycleNumRocks := cycleLengthOffset + cycleLength*((1000000000000-cycleLengthOffset)/cycleLength)
+	cycleRockHeight := cycleHeightOffset + cycleHeight*((1000000000000-cycleLengthOffset)/cycleLength)
+	rockDeficit := 1000000000000 - cycleNumRocks
+
+	fmt.Printf(
+		"Cycles get us to %d rocks landed with rock height %d. Need %d more rocks\n",
+		cycleNumRocks,
+		cycleRockHeight,
+		rockDeficit,
+	)
+
+	var incrementalRockHeight int
+	for _, v := range memo {
+		if v.rocksLanded-cycleLengthOffset == rockDeficit {
+			incrementalRockHeight = v.rockHeight - cycleHeightOffset
+			break
+		}
+	}
+
+	fmt.Println("Part Two: Total rock height after 1000000000000 rocks have landed might be...", cycleRockHeight+incrementalRockHeight)
+
 }
 
 func render(allRock map[coord]bool, maxHeight int, currentRock block) string {

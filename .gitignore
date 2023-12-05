@@ -15,3 +15,6 @@
 # vendor/
 folder_setup.py
 .DS_Store
+
+*.txt
+.vscode

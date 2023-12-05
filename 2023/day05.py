@@ -33,7 +33,7 @@ def dive(seed, converters):
 res = min(dive(seed, converters) for seed in seeds)
 print("Part 1:", res)
 
-
+# TODO: clean me up later
 # def process_pool(start, length):
 #     return min(
 #         (dive(seed, converters) for seed in range(start, start + length)),

@@ -62,6 +62,7 @@ crossings_contribution = {
 
 from tqdm import tqdm
 
+# an extra loop could have been skipped here, but it's already done
 for xy in tqdm(grid.keys()):
     xyo = xy
     if xy in path:

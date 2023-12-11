@@ -1,5 +1,3 @@
-import numpy as np
-
 input_file = "inputs/day10.txt"
 
 grid = {}
@@ -24,7 +22,6 @@ cur = start
 prev = cur
 steps = 0
 path = [cur]
-import time
 
 area = 0
 while (cur != start) or (steps == 0):

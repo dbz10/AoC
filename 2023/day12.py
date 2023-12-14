@@ -43,51 +43,55 @@ def is_possible(proposal: str, blocks: list[int]):
     return completed_islands_match and latest_island_is_possible
 
 
-def gen(condition: str, blocks) -> list[str]:
+import time
+
+hits = 0
+calls = 0
+
+
+def gen(condition: str, blocks, memo) -> list[str]:
+    global hits, calls
+    calls += 1
+
+    if not is_possible(condition, block):
+        return 0
+    if is_valid(condition, block):
+        return 1
+
     if "?" in condition:
+        # print(condition)
         idx = condition.find("?")
+        key = condition[idx:]
+        # print(condition)
+        # print(key)
+        # print("")
+        # time.sleep(1)
+        check = memo.get(key)
+        if check:
+            hits += 1
+            return check
+        # print(idx)
         l = list(condition)
         l[idx] = "."
         l = "".join(l)
         r = list(condition)
         r[idx] = "#"
         r = "".join(r)
-        res = []
-        if is_possible(l, blocks):
-            # print(l)
-            res += gen(l, blocks)
-        if is_possible(r, blocks):
-            # print(r)
-            res += gen(r, blocks)
+        res = gen(l, blocks, memo) + gen(r, blocks, memo)
+        memo[key] = res
         return res
-    if is_valid(condition, block):
-        return [condition]
-    return []
 
-
-# bfs?
-def gen_bfs(go, blocks):
-    while any("?" in x for x in go):
-        r = []
-        for cur in go:
-            s = list(cur)
-            for i, ch in enumerate(s):
-                if ch == "?":
-                    cur[i] = "."
-                    if is_possible("".join(cur), blocks):
-                        r.append(cur)
-                    cur[i] = "#"
-                    if is_possible("".join(cur), blocks):
-                        r.append(cur)
-        return go(r)
+    return 0
 
 
 acc = 0
 acc_2 = 0
 for condition, block in zip(conditions, blocks):
-    combs = len([c for c in gen(condition, block) if is_valid(c, block)])
+    memo = {}
+    hits = 0
+    combs = gen(condition, block, memo)
 
-    print(condition, combs)
+    print(condition, combs, hits, calls, len(memo))
     acc += combs
 
 

@@ -18,3 +18,5 @@ folder_setup.py
 
 *.txt
 .vscode
+
+target

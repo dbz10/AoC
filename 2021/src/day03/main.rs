@@ -80,11 +80,8 @@ fn part2(content: &Vec<Vec<u32>>) -> u32 {
     let mut c_gamma = content.clone();
     for i in 0..val_length {
         let counts = build_counts(&c_gamma);
-
         let n = c_gamma.len();
-
         let target_value = if counts[&i] >= n - counts[&i] { 0 } else { 1 };
-
         if c_gamma.len() == 1 {
             break;
         }

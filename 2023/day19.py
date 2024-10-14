@@ -8,6 +8,16 @@ workflows_specs, inputs = map(
     lambda x: x.split("\n"), open(input_file).read().split("\n\n")
 )
 
+print(
+    open(input_file)
+    .read()
+    .split("\n\n")[0]
+    .replace(":", " and ")
+    .replace(",", "_() or ")
+    .replace("{", "_ = lambda: ")
+    .replace("}", "_()")
+)
+
 
 @dataclass
 class MachinePart:

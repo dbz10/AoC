@@ -1,0 +1,171 @@
+digraph {
+	output
+	rx
+	rp
+	kh
+	jz
+	dx
+	dh
+	zv
+	xb
+	hv
+	db
+	sk
+	tc
+	dj
+	jk
+	fm
+	dp
+	vh
+	lz
+	kr
+	jb
+	kz
+	ts
+	gr
+	kc
+	jd
+	bs
+	zk
+	vf
+	mm
+	qc
+	fk
+	bm
+	ds
+	sn
+	zn
+	ct
+	np
+	tg
+	tx
+	zl
+	zz
+	ms
+	ns
+	px
+	broadcaster
+	hn
+	hh
+	kf
+	vg
+	bv
+	pl
+	cm
+	cc
+	bf
+	hl
+	cs
+	gq
+	rg
+	sd
+	cs -> rx
+	kh -> cs [style=dotted]
+	lz -> cs [style=dotted]
+	tg -> cs [style=dotted]
+	hn -> cs [style=dotted]
+	zv -> hn [style=dotted]
+	db -> zv [style=dotted]
+	fm -> zv [style=dotted]
+	gr -> zv [style=dotted]
+	jd -> zv [style=dotted]
+	sn -> zv [style=dotted]
+	tx -> zv [style=dotted]
+	zz -> zv [style=dotted]
+	px -> zv [style=dotted]
+	cm -> zv [style=dotted]
+	tx -> cm
+	dx -> tx
+	zv -> dx
+	fm -> dx
+	zv -> fm
+	broadcaster -> fm
+	zz -> px
+	db -> zz
+	ns -> db
+	zv -> ns
+	gr -> ns
+	hl -> gr
+	zv -> hl
+	cm -> hl
+	px -> sn
+	sn -> jd
+	pl -> tg [style=dotted]
+	jz -> pl [style=dotted]
+	dj -> pl [style=dotted]
+	jb -> pl [style=dotted]
+	ts -> pl [style=dotted]
+	qc -> pl [style=dotted]
+	vg -> pl [style=dotted]
+	bv -> pl [style=dotted]
+	bf -> pl [style=dotted]
+	jb -> bf
+	jz -> jb
+	tc -> jz
+	vg -> tc
+	pl -> tc
+	bs -> vg
+	ts -> bs
+	pl -> bs
+	dj -> ts
+	qc -> dj
+	fk -> qc
+	ct -> fk
+	pl -> fk
+	bv -> ct
+	pl -> ct
+	broadcaster -> bv
+	pl -> bv
+	sd -> lz [style=dotted]
+	rp -> sd [style=dotted]
+	dh -> sd [style=dotted]
+	jk -> sd [style=dotted]
+	dp -> sd [style=dotted]
+	vh -> sd [style=dotted]
+	kc -> sd [style=dotted]
+	bm -> sd [style=dotted]
+	cc -> sd [style=dotted]
+	dp -> cc
+	gq -> dp
+	rp -> gq
+	sd -> gq
+	zk -> rp
+	vf -> zk
+	sd -> zk
+	bm -> vf
+	sd -> vf
+	dh -> bm
+	kf -> dh
+	kc -> kf
+	sd -> kf
+	broadcaster -> kc
+	sd -> kc
+	jk -> vh
+	cc -> jk
+	sk -> kh [style=dotted]
+	xb -> sk [style=dotted]
+	hv -> sk [style=dotted]
+	kz -> sk [style=dotted]
+	mm -> sk [style=dotted]
+	ds -> sk [style=dotted]
+	np -> sk [style=dotted]
+	ms -> sk [style=dotted]
+	mm -> ms
+	zn -> mm
+	sk -> zn
+	rg -> zn
+	sk -> rg
+	kr -> rg
+	hv -> kr
+	sk -> kr
+	sk -> hv
+	broadcaster -> hv
+	hh -> np
+	sk -> hh
+	zl -> hh
+	sk -> zl
+	ms -> zl
+	xb -> ds
+	np -> xb
+	ds -> kz
+}

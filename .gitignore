@@ -20,3 +20,6 @@ folder_setup.py
 .vscode
 
 target
+
+__pycache__
+env.toml

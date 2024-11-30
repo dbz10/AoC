@@ -9,11 +9,13 @@
 import typer
 import importlib
 from enum import StrEnum, auto
-from pathlib import Path
 import tomllib
 import requests
 import logging
 from os import environ
+from bench import bench
+
+YEAR = 2024
 
 
 class InputType(StrEnum):
@@ -25,17 +27,27 @@ def main(
     day: int,
     input: InputType = InputType.input,
     fetch_input: bool = True,
+    benchmark: bool = False,
 ) -> None:
     """
     Run your solution for a given day. Will attempt to download the puzzle input, which requires a cookie for authentication,
     unles `fetch_input` is set to false (alternatively, can pass as a flag `--no-fetch-input`).
     """
     if fetch_input:
-        get_input(2024, day)
+        get_input(YEAR, day)
     target_pkg = f"day{day:02d}.main"
-    target_file = Path(target_pkg) / f"{input.name}.txt"
+    target_file = f"day{day:02d}/{input.name}.txt"
     day_runner = importlib.import_module(target_pkg)
-    day_runner.main(target_file)
+
+    if benchmark:
+
+        @bench(YEAR, day)
+        def run_day():
+            day_runner.main(target_file)
+
+        run_day()
+    else:
+        day_runner.main(target_file)
 
 
 # SAMPLE_SELECTOR = "body > main > article:nth-child(1) > pre:nth-child(8) > code"  how to do this consistently across different days?

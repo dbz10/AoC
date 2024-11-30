@@ -1,9 +1,20 @@
+# CEOL <!-- omit in toc -->
+
+- [Summary](#summary)
+- [Usage](#usage)
+  - [Requirements](#requirements)
+  - [Running CEOL](#running-ceol)
+  - [Benchmarking](#benchmarking)
+
+
 # Summary
 Christmas Elf Officer Lite `ceol.py` (name is shamelessly stolen from the far more real project https://github.com/gcalmettes/christmas-elf-officer) is a small CLI tool to facilitate running Advent of Code.
 
 The functionality is not extensive: it will download and cache your puzzle input (provided with a cookie to authenticate yourself) and run your solution for that day. Optionally, it benchmarks the performance of your solution and saves the results in a sqlite database to do whatever you want with. 
 
 (Functionality to automatically get the sample input is still WIP, for now only fetching the real puzzle input is suppported.)
+
+CEOL's code quality is concordant with the vibes of AoC, ugly but (allegedly) gets the job done. 
 
 # Usage
 

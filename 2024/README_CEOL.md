@@ -20,7 +20,7 @@ Reading inline script metadata from `ceol.py`
  Usage: ceol.py [OPTIONS] DAY
 
  Run your solution for a given day. Will attempt to download the puzzle input, which requires a
- cookie for authentication, unles `fetch_input` is set to false (alternatively, can pass as a
+ cookie for authentication, unless `fetch_input` is set to false (alternatively, can pass as a
  flag `--no-fetch-input`).
 
 ╭─ Arguments ────────────────────────────────────────────────────────────────────────────────────╮

@@ -12,6 +12,7 @@ from enum import StrEnum, auto
 
 from bench import bench
 from fetch import get_input
+import solution_performance
 
 YEAR = 2024
 
@@ -46,6 +47,9 @@ def main(
         run_day()
     else:
         day_runner.main(target_file)
+
+    # update timing sheet
+    solution_performance.main()
 
 
 if __name__ == "__main__":

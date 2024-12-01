@@ -5,6 +5,7 @@ import subprocess
 import functools
 
 BENCHDB = "bench.db"
+TABLE = "aoc_bench"
 
 
 def init_check_db():
@@ -16,13 +17,13 @@ def init_check_db():
     cursor = con.cursor()
     table_exists = (
         cursor.execute(
-            "select * from sqlite_master where type = 'table' and name = 'aoc_bench'"
+            f"select * from sqlite_master where type = 'table' and name = '{TABLE}'"
         ).fetchone()
         is not None
     )
     if not table_exists:
-        cursor.execute("""
-        CREATE TABLE aoc_bench(
+        cursor.execute(f"""
+        CREATE TABLE {TABLE}(
                        year INT,
                        day INT,
                        commit_hash TEXT,
@@ -62,8 +63,8 @@ def bench(year, day):
             con = sqlite3.connect(BENCHDB)
             cursor = con.cursor()
             cursor.execute(
-                """
-                INSERT INTO aoc_bench(year, day, commit_hash, run_ts, duration_seconds) 
+                f"""
+                INSERT INTO {TABLE}(year, day, commit_hash, run_ts, duration_seconds) 
                 VALUES(:year, :day, :commit_hash, :run_ts, :duration_seconds)
                 """,
                 data,

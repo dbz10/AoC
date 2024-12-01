@@ -2,7 +2,6 @@ import tomllib
 import requests
 import logging
 from os import environ
-import bs4
 
 INPUT_URL_TEMPLATE = "https://adventofcode.com/{year}/day/{day}/input"
 PUZZLE_URL_TEMPLATE = "https://adventofcode.com/{year}/day/{day}"

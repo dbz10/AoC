@@ -28,9 +28,11 @@ def main():
         ["| " + " | ".join(row_data) + " |" for row_data in data_stringified]
     )
 
-    markdown_table = f"""{markdown_header}
-    {header_separator}
-    {markdown_rows}"""
+    markdown_table = f"""
+{markdown_header}
+{header_separator}
+{markdown_rows}
+""".strip()
 
     with open("solutions.md", "w") as f:
         f.write(markdown_table)

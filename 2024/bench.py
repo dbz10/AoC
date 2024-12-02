@@ -3,6 +3,8 @@ from time import perf_counter
 from datetime import datetime
 import subprocess
 import functools
+import os
+import contextlib
 
 BENCHDB = "bench.db"
 TABLE = "aoc_bench"
@@ -34,13 +36,20 @@ def init_check_db():
     con.close()
 
 
-def bench(year, day):
+def bench(year, day, n_repeats=10):
     def decorator_bench(func):
         @functools.wraps(func)
         def inner(*args, **kwargs):
-            tic = perf_counter()
             func(*args, **kwargs)
-            toc = perf_counter()
+            timings = []
+            with open(os.devnull, "w") as f, contextlib.redirect_stdout(f):
+                for _ in range(n_repeats):
+                    tic = perf_counter()
+                    func(*args, **kwargs)
+                    toc = perf_counter()
+                    timings.append(toc - tic)
+            timings.sort()
+            benchmark_time = sum(timings[2:-2]) / (n_repeats - 4)
 
             commit_hash = (
                 subprocess.run(
@@ -50,7 +59,7 @@ def bench(year, day):
                 .stdout.decode()
                 .strip()
             )
-            duration_seconds = toc - tic
+            duration_seconds = benchmark_time
 
             data = {
                 "year": year,
@@ -61,15 +70,21 @@ def bench(year, day):
             }
             init_check_db()
             con = sqlite3.connect(BENCHDB)
-            cursor = con.cursor()
-            cursor.execute(
-                f"""
-                INSERT INTO {TABLE}(year, day, commit_hash, run_ts, duration_seconds) 
-                VALUES(:year, :day, :commit_hash, :run_ts, :duration_seconds)
-                """,
-                data,
-            )
-            con.commit()  # why do i need to do this...? where is autocommit?!?!
+            with con:
+                con.execute(
+                    f"""
+                    DELETE FROM {TABLE}
+                    WHERE year = ? and day = ? and commit_hash = ?
+                    """,
+                    (year, day, commit_hash),
+                )
+                con.execute(
+                    f"""
+                    INSERT INTO {TABLE}(year, day, commit_hash, run_ts, duration_seconds) 
+                    VALUES(:year, :day, :commit_hash, :run_ts, :duration_seconds)
+                    """,
+                    data,
+                )
             con.close()
 
         return inner

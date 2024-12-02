@@ -3,6 +3,7 @@
 # dependencies = [
 #     "requests",
 #     "typer",
+#     "numpy",
 # ]
 # ///
 

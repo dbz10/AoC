@@ -10,6 +10,7 @@
 import typer
 import importlib
 from enum import StrEnum, auto
+from typing_extensions import Annotated
 
 from bench import bench
 from fetch import get_input
@@ -25,9 +26,22 @@ class InputType(StrEnum):
 
 def main(
     day: int,
-    input: InputType = InputType.input,
-    fetch_input: bool = True,
-    benchmark: bool = False,
+    sample: Annotated[
+        bool,
+        typer.Option(
+            help="Flag to control whether the solution is run against the sample input or the real input. Targets the real input by default."
+        ),
+    ] = False,
+    fetch_input: Annotated[
+        bool,
+        typer.Option(
+            help="Flag to control fetching the input or not. True by default. Input is saved between repeated runs so will still only be fetched once, unless the file is removed. Set to False if e.g. you don't have a session cookie handy"
+        ),
+    ] = True,
+    benchmark: Annotated[
+        bool,
+        typer.Option(help="Flag to control whether benchmarking will be run or not."),
+    ] = False,
 ) -> None:
     """
     Run your solution for a given day. Will attempt to download the puzzle input, which requires a cookie for authentication,
@@ -36,7 +50,10 @@ def main(
     if fetch_input:
         get_input(YEAR, day)
     target_pkg = f"day{day:02d}.main"
-    target_file = f"day{day:02d}/{input.name}.txt"
+    if sample:
+        target_file = f"day{day:02d}/sample.txt"
+    else:
+        target_file = f"day{day:02d}/input.txt"
     day_runner = importlib.import_module(target_pkg)
 
     if benchmark:

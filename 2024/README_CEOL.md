@@ -69,15 +69,25 @@ Reading inline script metadata from `ceol.py`
 │ *    day      INTEGER  [default: None] [required]                                              │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Options ──────────────────────────────────────────────────────────────────────────────────────╮
-│ --input                              [sample|input]  [default: input]                          │
-│ --fetch-input    --no-fetch-input                    [default: fetch-input]                    │
-│ --benchmark      --no-benchmark                      [default: no-benchmark]                   │
-│ --help                                               Show this message and exit.               │
+│ --sample         --no-sample           Flag to control whether the solution is run against the │
+│                                        sample input or the real input. Targets the real input  │
+│                                        by default.                                             │
+│                                        [default: no-sample]                                    │
+│ --fetch-input    --no-fetch-input      Flag to control fetching the input or not. True by      │
+│                                        default. Input is saved between repeated runs so will   │
+│                                        still only be fetched once, unless the file is removed. │
+│                                        Set to False if e.g. you don't have a session cookie    │
+│                                        handy                                                   │
+│                                        [default: fetch-input]                                  │
+│ --benchmark      --no-benchmark        Flag to control whether benchmarking will be run or     │
+│                                        not.                                                    │
+│                                        [default: no-benchmark]                                 │
+│ --help                                 Show this message and exit.                             │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 ```
 
-For example `uv run ceol.py 1 --input sample` to run Day 1 on the sample input, or `uv run ceol.py 1` to run Day 1 on the real puzzle input.
+For example `uv run ceol.py 1 --sample` to run Day 1 on the sample input, or `uv run ceol.py 1` to run Day 1 on the real puzzle input.
 
 ## Benchmarking
 

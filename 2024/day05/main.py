@@ -16,7 +16,7 @@ def main(input_file="sample.txt"):
 
 
 def part1(pages, rules):
-    pages_ok = [p for p in pages if ok1(copy(p), rules)]
+    pages_ok = (p for p in pages if ok1(copy(p), rules))
     return sum(int(p[len(p) // 2]) for p in pages_ok)
 
 
@@ -30,9 +30,9 @@ def ok1(pages: list[str], rules):
 
 def part2(pages, rules):
     # brute force? sorting black magic?
-    pages_not_ok = [p for p in pages if not ok1(copy(p), rules)]
+    pages_not_ok = (p for p in pages if not ok1(copy(p), rules))
     sortkey = cmp_to_key(cmp(rules))
-    fixed = [sorted(p, key=sortkey) for p in pages_not_ok]
+    fixed = (sorted(p, key=sortkey) for p in pages_not_ok)
     return sum(int(p[len(p) // 2]) for p in fixed)
 
 

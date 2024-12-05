@@ -31,7 +31,8 @@ def ok1(pages: list[str], rules):
 def part2(pages, rules):
     # brute force? sorting black magic?
     pages_not_ok = [p for p in pages if not ok1(copy(p), rules)]
-    fixed = [sorted(p, key=cmp_to_key(cmp(rules))) for p in pages_not_ok]
+    sortkey = cmp_to_key(cmp(rules))
+    fixed = [sorted(p, key=sortkey) for p in pages_not_ok]
     return sum(int(p[len(p) // 2]) for p in fixed)
 
 

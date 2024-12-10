@@ -29,28 +29,14 @@ def part1(topo: Topo):
     return sum([trace(s, topo) for s in lows])
 
 
-def trace(start: tuple[int, int], topo: Topo) -> int:
-    """
-    The number of trailheads reachable from start
-    """
-    front = [start]
-    peaks = set()
-    while front:
-        (x, y) = front.pop()
-        current_height = topo.height(x, y)
-        neighbors = topo.neighbors(x, y)
-        for nx, ny in neighbors:
-            nh = topo.height(nx, ny)
-
-            if nh == current_height + 1:
-                if nh == 9:
-                    peaks.add((nx, ny))
-                else:
-                    front.append((nx, ny))
-    return len(peaks)
+def part2(topo):
+    lows = [
+        (x, y) for x in range(topo.lx) for y in range(topo.ly) if topo.height(x, y) == 0
+    ]
+    return sum([trace(s, topo, p2=True) for s in lows])
 
 
-def trace2(start: tuple[int, int], topo: Topo) -> int:
+def trace(start: tuple[int, int], topo: Topo, p2=False) -> int:
     """
     The number of trailheads reachable from start
     """
@@ -64,19 +50,16 @@ def trace2(start: tuple[int, int], topo: Topo) -> int:
         for nx, ny in neighbors:
             nh = topo.height(nx, ny)
             if nh == current_height + 1:
-                path_next = path + [(nx, ny)]
                 if nh == 9:
-                    trails.add(tuple(path_next))
+                    if p2:
+                        path_next = path + [(nx, ny)]
+                        trails.add(tuple(path_next))
+                    else:
+                        trails.add((nx, ny))
                 else:
+                    path_next = path + [(nx, ny)]
                     front.append(path_next)
     return len(trails)
-
-
-def part2(topo):
-    lows = [
-        (x, y) for x in range(topo.lx) for y in range(topo.ly) if topo.height(x, y) == 0
-    ]
-    return sum([trace2(s, topo) for s in lows])
 
 
 if __name__ == "__main__":

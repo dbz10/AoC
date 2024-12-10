@@ -1,15 +1,82 @@
+class Topo:
+    def __init__(self, topo: list[list[int]]):
+        self.topo = topo
+        self.lx = len(topo[0])
+        self.ly = len(topo)
+
+    def neighbors(self, x: int, y: int) -> list[tuple[int, int]]:
+        n = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+        return [p for p in n if 0 <= p[0] < self.lx and 0 <= p[1] < self.ly]
+
+    def height(self, x: int, y: int) -> int:
+        return self.topo[y][x]
+
+    def __repr__(self) -> str:
+        return "\n".join(["".join(list(map(str, r))) for r in self.topo])
+
+
 def main(input_file="sample.txt"):
-    input = open(input_file).read()
-    print(f"Part 1: {part1(input)}")
-    print(f"Part 2: {part2(input)}")
+    input = [[int(ch) for ch in row] for row in open(input_file).read().splitlines()]
+    topo = Topo(input)
+    print(f"Part 1: {part1(topo)}")
+    print(f"Part 2: {part2(topo)}")
 
 
-def part1(input):
-    return
+def part1(topo: Topo):
+    lows = [
+        (x, y) for x in range(topo.lx) for y in range(topo.ly) if topo.height(x, y) == 0
+    ]
+    return sum([trace(s, topo) for s in lows])
 
 
-def part2(input):
-    return
+def trace(start: tuple[int, int], topo: Topo) -> int:
+    """
+    The number of trailheads reachable from start
+    """
+    front = [start]
+    peaks = set()
+    while front:
+        (x, y) = front.pop()
+        current_height = topo.height(x, y)
+        neighbors = topo.neighbors(x, y)
+        for nx, ny in neighbors:
+            nh = topo.height(nx, ny)
+
+            if nh == current_height + 1:
+                if nh == 9:
+                    peaks.add((nx, ny))
+                else:
+                    front.append((nx, ny))
+    return len(peaks)
+
+
+def trace2(start: tuple[int, int], topo: Topo) -> int:
+    """
+    The number of trailheads reachable from start
+    """
+    front = [[start]]
+    trails = set()
+    while front:
+        path = front.pop()
+        (x, y) = path[-1]
+        current_height = topo.height(x, y)
+        neighbors = topo.neighbors(x, y)
+        for nx, ny in neighbors:
+            nh = topo.height(nx, ny)
+            if nh == current_height + 1:
+                path_next = path + [(nx, ny)]
+                if nh == 9:
+                    trails.add(tuple(path_next))
+                else:
+                    front.append(path_next)
+    return len(trails)
+
+
+def part2(topo):
+    lows = [
+        (x, y) for x in range(topo.lx) for y in range(topo.ly) if topo.height(x, y) == 0
+    ]
+    return sum([trace2(s, topo) for s in lows])
 
 
 if __name__ == "__main__":

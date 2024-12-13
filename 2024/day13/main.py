@@ -23,23 +23,14 @@ class Game:
         # (ay by) (d2)   (ty)
 
         det = self.A.x * self.B.y - self.B.x * self.A.y
-        if det == 0:
-            # underspecified.
-            # actually this never happened
-            if self.target.x / self.b.x <= 100:
-                return self.target.x / self.b.x
-            else:
-                db = 100
-                da = (self.target.x - self.b.x * 100) / self.a.x
+        # at first i was checking for det = 0 but it never happened.
+        # so removed that to clean the solution up a bit.
 
-        else:
-            # fp precision :(
-            da = round(
-                (1 / det) * (self.B.y * self.target.x - self.B.x * self.target.y), 2
-            )
-            db = round(
-                (1 / det) * (-self.A.y * self.target.x + self.A.x * self.target.y), 2
-            )
+        # fp precision :(
+        da = round((1 / det) * (self.B.y * self.target.x - self.B.x * self.target.y), 2)
+        db = round(
+            (1 / det) * (-self.A.y * self.target.x + self.A.x * self.target.y), 2
+        )
 
         if da % 1 != 0 or db % 1 != 0:
             return None

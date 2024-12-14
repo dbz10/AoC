@@ -4,6 +4,7 @@
 #     "requests",
 #     "typer",
 #     "numpy",
+#     "matplotlib",
 # ]
 # ///
 

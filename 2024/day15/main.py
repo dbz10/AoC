@@ -1,7 +1,14 @@
+from __future__ import annotations
+from dataclasses import dataclass
+from queue import SimpleQueue
+
+
 WALL = "#"
 BOX = "O"
 ROBOT = "@"
 EMPTY = "."
+LEFTBOX = "["
+RIGHTBOX = "]"
 DIRECTIONS = {"v": 1j, ">": 1, "<": -1, "^": -1j}
 
 EXPANSION_RULES = {"#": "##", "@": "@.", ".": "..", "O": "[]"}
@@ -9,7 +16,7 @@ EXPANSION_RULES = {"#": "##", "@": "@.", ".": "..", "O": "[]"}
 WIDEBOX = ["[", "]"]
 
 
-def main(input_file="sample.txt"):
+def main(input_file="day15/sample.txt"):
     input = open(input_file).read().split("\n\n")
 
     map_input = input[0].splitlines()
@@ -52,8 +59,7 @@ def part1(map, directions):
         if len(update) > 0:
             map = map | update
             pos += d
-        # render(map)
-    gps_sum = sum([p.real + 100 * p.imag for p, c in map.items() if c == BOX])
+    gps_sum = int(sum([p.real + 100 * p.imag for p, c in map.items() if c == BOX]))
 
     return gps_sum
 
@@ -64,43 +70,75 @@ def render(map):
     rendered = ""
     for y in range(ly + 1):
         for x in range(lx + 1):
-            rendered += map[x + 1j * y]
+            rendered += str(map[x + 1j * y])
         rendered += "\n"
     print(rendered)
 
 
-def collision_rules(map, start, direction):
-    # jeez
-    return "thanks a lot eric"
+def collision_rules(
+    map: dict[complex, str],
+    p: complex,
+    d: complex,
+) -> tuple[dict[complex, str], list[complex]] | None:
+    if map[p + d] == WALL:
+        return None
+
+    symbol = map[p]
+    update = {p: EMPTY, p + d: map[p]}
+    if symbol == LEFTBOX:
+        if d.imag != 0:
+            check_next = list(set([p + 1, p + d]))
+        else:
+            check_next = [p + d]
+    elif symbol == RIGHTBOX:
+        if d.imag != 0:
+            check_next = list(set([p - 1, p + d]))
+        else:
+            check_next = [p + d]
+    elif symbol == ROBOT:
+        check_next = [p + d]
+    else:
+        check_next = []
+
+    check_next = [c for c in check_next if map[c] != EMPTY]
+    return update, check_next
 
 
-def contains_box(map, point):
-    return map[point] in WIDEBOX
-
-
-def part2(input):
+def part2(map, directions):
     pos = [k for k, v in map.items() if v == ROBOT][0]
-    for dir in directions:
+
+    for i, dir in enumerate(directions):
         d = DIRECTIONS[dir]
+
+        to_check = SimpleQueue()
+        to_check.put(pos)
+        visited = set()
+        update_rules = []
+        blocked = False
+        while not to_check.empty():
+            check_me = to_check.get()
+            move = collision_rules(map, check_me, d)
+            if move is None:
+                blocked = True
+                break
+            (update_rule, check_next) = move
+            update_rules.append(update_rule)
+            for c in [c for c in check_next if c not in visited]:
+                to_check.put(c)
+                visited.add(c)
+        if blocked:
+            continue
+
+        # put all the updates together in the reverse order
         update = {}
+        for update_rule in update_rules[::-1]:
+            update = update | update_rule
 
-        if map[pos + d] == EMPTY:
-            update[pos + d] = ROBOT
-            update[pos] = EMPTY
-        elif map[pos + d] == BOX:
-            l = 1
-            while map[pos + d * l] == BOX:
-                l += 1
-            if map[pos + d * l] == EMPTY:
-                update[pos + d * l] = BOX
-                update[pos + d] = ROBOT
-                update[pos] = EMPTY
+        map = map | update
+        pos += d
 
-        if len(update) > 0:
-            map = map | update
-            pos += d
-        # render(map)
-    gps_sum = sum([p.real + 100 * p.imag for p, c in map.items() if c == BOX])
+    render(map)
+    gps_sum = int(sum([p.real + 100 * p.imag for p, c in map.items() if c == LEFTBOX]))
 
     return gps_sum
 

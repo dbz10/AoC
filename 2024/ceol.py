@@ -5,6 +5,7 @@
 #     "typer",
 #     "numpy",
 #     "matplotlib",
+#     "tqdm",
 # ]
 # ///
 

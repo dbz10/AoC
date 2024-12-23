@@ -36,6 +36,8 @@ def prune(x):
 
 
 def part2(input):
+    # idk lol
+    # some heuristics get it to be not horrible in terms of time.
     all_monkeys_sequences = [[x % 10 for x in evolve_n(seed, 2000)] for seed in input]
     all_deltas = [[a - b for a, b in zip(v[1:], v)] for v in all_monkeys_sequences]
     banana_prices = [z[1:] for z in all_monkeys_sequences]
@@ -44,23 +46,26 @@ def part2(input):
         for idx, seq in enumerate(zip(delta, delta[1:], delta[2:], delta[3:]), start=3):
             if seq not in price_getting_sequence[monkey]:
                 price_getting_sequence[monkey][seq] = banana_prices[monkey][idx]
+            if len(price_getting_sequence[monkey]) == 10:
+                continue
 
-    # idk lol
     max_bananas = -1
     opt_seq = None
-    for s1 in range(-9, 10):
-        for s2 in range(-9, 10):
-            for s3 in range(-9, 10):
-                for s4 in range(-9, 10):
-                    bananas = sum(
-                        [
-                            price_getting_sequence[monkey].get((s1, s2, s3, s4), 0)
-                            for monkey in range(len(input))
-                        ]
-                    )
-                    if bananas > max_bananas:
-                        max_bananas = bananas
-                        opt_seq = (s1, 2, s3, s4)
+    possibly_positive_sequences = set(
+        k for k, v in price_getting_sequence[0].items() if v == 9
+    )
+    for i in range(1, len(input)):
+        possibly_positive_sequences = possibly_positive_sequences | set(
+            k for k, v in price_getting_sequence[i].items() if v == 9
+        )
+
+    for s in possibly_positive_sequences:
+        bananas = sum(
+            [price_getting_sequence[monkey].get(s, 0) for monkey in range(len(input))]
+        )
+        if bananas > max_bananas:
+            max_bananas = bananas
+            opt_seq = s
     return max_bananas
 
 

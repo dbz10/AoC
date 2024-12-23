@@ -1,4 +1,5 @@
 from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor
 
 
 def main(input_file="sample.txt"):
@@ -8,7 +9,9 @@ def main(input_file="sample.txt"):
 
 
 def part1(input):
-    res = {seed: evolve_n(seed, 2000)[-1] for seed in input}
+    with ProcessPoolExecutor(12) as pool:
+        futures = {seed: pool.submit(evolve_n, seed, 2000) for seed in input}
+    res = {k: v.result()[-1] for k, v in futures.items()}
     return sum(res.values())
 
 
@@ -35,20 +38,44 @@ def prune(x):
     return x % 16777216
 
 
+def banana_price_market_research(
+    seq: list[int],
+) -> dict[tuple[int, int, int, int], int]:
+    delta = [a - b for a, b in zip(seq[1:], seq)]
+    banana_prices = seq[1:]
+    price_getting_sequence = {}
+    for idx, seq in enumerate(zip(delta, delta[1:], delta[2:], delta[3:]), start=3):
+        if seq not in price_getting_sequence:
+            price_getting_sequence[seq] = banana_prices[idx]
+
+    return price_getting_sequence
+
+
 def part2(input):
     # idk lol
     # some heuristics get it to be not horrible in terms of time.
-    all_monkeys_sequences = [[x % 10 for x in evolve_n(seed, 2000)] for seed in input]
-    all_deltas = [[a - b for a, b in zip(v[1:], v)] for v in all_monkeys_sequences]
-    banana_prices = [z[1:] for z in all_monkeys_sequences]
-    price_getting_sequence = defaultdict(dict)
-    for monkey, delta in enumerate(all_deltas):
-        for idx, seq in enumerate(zip(delta, delta[1:], delta[2:], delta[3:]), start=3):
-            if seq not in price_getting_sequence[monkey]:
-                price_getting_sequence[monkey][seq] = banana_prices[monkey][idx]
-            if len(price_getting_sequence[monkey]) == 10:
-                continue
+    with ProcessPoolExecutor(12) as pool:
+        futures = [pool.submit(evolve_n, seed, 2000) for seed in input]
+    all_monkeys_sequences = [[x % 10 for x in f.result()] for f in futures]
+    # all_deltas = [[a - b for a, b in zip(v[1:], v)] for v in all_monkeys_sequences]
+    # banana_prices = [z[1:] for z in all_monkeys_sequences]
+    # price_getting_sequence = defaultdict(dict)
 
+    with ProcessPoolExecutor(12) as pool:
+        futures = [
+            pool.submit(banana_price_market_research, monkey_sequence)
+            for monkey_sequence in all_monkeys_sequences
+        ]
+
+    price_getting_sequence = {monkey: f.result() for monkey, f in enumerate(futures)}
+
+    # for monkey, delta in enumerate(all_deltas):
+    #     for idx, seq in enumerate(zip(delta, delta[1:], delta[2:], delta[3:]), start=3):
+    #         if seq not in price_getting_sequence[monkey]:
+    #             price_getting_sequence[monkey][seq] = banana_prices[monkey][idx]
+    #         if len(price_getting_sequence[monkey]) == 10:
+    #             continue
+    # print(price_getting_sequence)
     max_bananas = -1
     opt_seq = None
     possibly_positive_sequences = set(

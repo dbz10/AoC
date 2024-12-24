@@ -1,0 +1,1202 @@
+graph {
+	bfg [label="bfg: 1" color=black shape=box]
+	bkm [label="bkm: 0" color=black shape=box]
+	bmh [label="bmh: 1" color=black shape=box]
+	bnk [label="bnk: 1" color=black shape=box]
+	bpj [label="bpj: 1" color=black shape=box]
+	bsn [label="bsn: 0" color=black shape=box]
+	bwr [label="bwr: 1" color=black shape=box]
+	ccj [label="ccj: 0" color=black shape=box]
+	cdh [label="cdh: 0" color=black shape=box]
+	cds [label="cds: 1" color=black shape=box]
+	chk [label="chk: 0" color=black shape=box]
+	cjc [label="cjc: 0" color=black shape=box]
+	cnq [label="cnq: 1" color=black shape=box]
+	cpd [label="cpd: 0" color=black shape=box]
+	cpp [label="cpp: 0" color=black shape=box]
+	cwp [label="cwp: 1" color=black shape=box]
+	dbr [label="dbr: 0" color=black shape=box]
+	dct [label="dct: 0" color=black shape=box]
+	dgc [label="dgc: 0" color=black shape=box]
+	djp [label="djp: 0" color=black shape=box]
+	dmh [label="dmh: 1" color=black shape=box]
+	dmw [label="dmw: 0" color=black shape=box]
+	dpr [label="dpr: 1" color=black shape=box]
+	dqf [label="dqf: 0" color=black shape=box]
+	dqk [label="dqk: 0" color=black shape=box]
+	drc [label="drc: 0" color=black shape=box]
+	dsn [label="dsn: 0" color=black shape=box]
+	dvc [label="dvc: 0" color=black shape=box]
+	dvg [label="dvg: 0" color=black shape=box]
+	dwp [label="dwp: 0" color=black shape=box]
+	fbv [label="fbv: 0" color=black shape=box]
+	fcg [label="fcg: 0" color=black shape=box]
+	fcm [label="fcm: 1" color=black shape=box]
+	ffq [label="ffq: 1" color=black shape=box]
+	fgc [label="fgc: 1" color=black shape=box]
+	fhp [label="fhp: 0" color=black shape=box]
+	fkn [label="fkn: 1" color=black shape=box]
+	fkp [label="fkp: 0" color=black shape=box]
+	fmw [label="fmw: 1" color=black shape=box]
+	fnn [label="fnn: 0" color=black shape=box]
+	fpd [label="fpd: 1" color=black shape=box]
+	fpp [label="fpp: 1" color=black shape=box]
+	fqp [label="fqp: 1" color=black shape=box]
+	frn [label="frn: 1" color=black shape=box]
+	fsp [label="fsp: 0" color=black shape=box]
+	fvv [label="fvv: 0" color=black shape=box]
+	gbf [label="gbf: 0" color=black shape=box]
+	gfs [label="gfs: 0" color=black shape=box]
+	ggg [label="ggg: 0" color=black shape=box]
+	ggp [label="ggp: 0" color=black shape=box]
+	gmj [label="gmj: 0" color=black shape=box]
+	gnt [label="gnt: 1" color=black shape=box]
+	gqn [label="gqn: 0" color=black shape=box]
+	grc [label="grc: 0" color=black shape=box]
+	grd [label="grd: 0" color=black shape=box]
+	grs [label="grs: 0" color=black shape=box]
+	grv [label="grv: 0" color=black shape=box]
+	gwg [label="gwg: 1" color=black shape=box]
+	hbg [label="hbg: 0" color=black shape=box]
+	hdf [label="hdf: 1" color=black shape=box]
+	hdk [label="hdk: 0" color=black shape=box]
+	hdt [label="hdt: 0" color=black shape=box]
+	hfj [label="hfj: 1" color=black shape=box]
+	hmn [label="hmn: 0" color=black shape=box]
+	hqr [label="hqr: 0" color=black shape=box]
+	hrv [label="hrv: 0" color=black shape=box]
+	hsh [label="hsh: 0" color=black shape=box]
+	hts [label="hts: 0" color=black shape=box]
+	jbf [label="jbf: 0" color=black shape=box]
+	jfb [label="jfb: 1" color=black shape=box]
+	jgt [label="jgt: 0" color=black shape=box]
+	jhw [label="jhw: 1" color=black shape=box]
+	jjg [label="jjg: 0" color=black shape=box]
+	jjj [label="jjj: 0" color=black shape=box]
+	jmc [label="jmc: 0" color=black shape=box]
+	jnk [label="jnk: 0" color=black shape=box]
+	jnv [label="jnv: 1" color=black shape=box]
+	jnw [label="jnw: 1" color=black shape=box]
+	jrm [label="jrm: 0" color=black shape=box]
+	jsd [label="jsd: 1" color=black shape=box]
+	kbc [label="kbc: 0" color=black shape=box]
+	kbw [label="kbw: 1" color=black shape=box]
+	kjf [label="kjf: 0" color=black shape=box]
+	kqh [label="kqh: 0" color=black shape=box]
+	mbt [label="mbt: 0" color=black shape=box]
+	mfb [label="mfb: 1" color=black shape=box]
+	mgr [label="mgr: 0" color=black shape=box]
+	mhh [label="mhh: 1" color=black shape=box]
+	mht [label="mht: 1" color=black shape=box]
+	mkq [label="mkq: 0" color=black shape=box]
+	mnm [label="mnm: 0" color=black shape=box]
+	mqr [label="mqr: 0" color=black shape=box]
+	msr [label="msr: 1" color=black shape=box]
+	mvt [label="mvt: 0" color=black shape=box]
+	nbf [label="nbf: 1" color=black shape=box]
+	ncj [label="ncj: 0" color=black shape=box]
+	ndc [label="ndc: 0" color=black shape=box]
+	ndp [label="ndp: 0" color=black shape=box]
+	nqw [label="nqw: 0" color=black shape=box]
+	nvj [label="nvj: 0" color=black shape=box]
+	nvv [label="nvv: 1" color=black shape=box]
+	nwb [label="nwb: 0" color=black shape=box]
+	nwr [label="nwr: 1" color=black shape=box]
+	pbk [label="pbk: 0" color=black shape=box]
+	pdk [label="pdk: 0" color=black shape=box]
+	pgd [label="pgd: 0" color=black shape=box]
+	pkb [label="pkb: 1" color=black shape=box]
+	pnf [label="pnf: 0" color=black shape=box]
+	pnt [label="pnt: 1" color=black shape=box]
+	pqm [label="pqm: 0" color=black shape=box]
+	prk [label="prk: 1" color=black shape=box]
+	psg [label="psg: 1" color=black shape=box]
+	psp [label="psp: 0" color=black shape=box]
+	pss [label="pss: 0" color=black shape=box]
+	pwh [label="pwh: 0" color=black shape=box]
+	qdw [label="qdw: 1" color=black shape=box]
+	qhs [label="qhs: 1" color=black shape=box]
+	qjh [label="qjh: 0" color=black shape=box]
+	qkf [label="qkf: 1" color=black shape=box]
+	qnh [label="qnh: 1" color=black shape=box]
+	qnk [label="qnk: 1" color=black shape=box]
+	qsm [label="qsm: 1" color=black shape=box]
+	qtc [label="qtc: 0" color=black shape=box]
+	qvd [label="qvd: 0" color=black shape=box]
+	qww [label="qww: 1" color=black shape=box]
+	rfj [label="rfj: 1" color=black shape=box]
+	rkv [label="rkv: 0" color=black shape=box]
+	rng [label="rng: 0" color=black shape=box]
+	rnk [label="rnk: 0" color=black shape=box]
+	rrc [label="rrc: 1" color=black shape=box]
+	rsk [label="rsk: 1" color=black shape=box]
+	rsw [label="rsw: 0" color=black shape=box]
+	rtb [label="rtb: 0" color=black shape=box]
+	rtc [label="rtc: 0" color=black shape=box]
+	rtw [label="rtw: 0" color=black shape=box]
+	sdb [label="sdb: 0" color=black shape=box]
+	sdq [label="sdq: 0" color=black shape=box]
+	sfr [label="sfr: 1" color=black shape=box]
+	sgc [label="sgc: 0" color=black shape=box]
+	shj [label="shj: 1" color=black shape=box]
+	shs [label="shs: 1" color=black shape=box]
+	sjh [label="sjh: 1" color=black shape=box]
+	sjk [label="sjk: 0" color=black shape=box]
+	ssr [label="ssr: 1" color=black shape=box]
+	swf [label="swf: 0" color=black shape=box]
+	tdh [label="tdh: 1" color=black shape=box]
+	tdw [label="tdw: 0" color=black shape=box]
+	tfh [label="tfh: 0" color=black shape=box]
+	tmd [label="tmd: 0" color=black shape=box]
+	tqf [label="tqf: 1" color=black shape=box]
+	tqk [label="tqk: 1" color=black shape=box]
+	tsw [label="tsw: 1" color=black shape=box]
+	ttc [label="ttc: 1" color=black shape=box]
+	ttm [label="ttm: 0" color=black shape=box]
+	vfc [label="vfc: 1" color=black shape=box]
+	vfs [label="vfs: 0" color=black shape=box]
+	vkd [label="vkd: 0" color=black shape=box]
+	vkm [label="vkm: 0" color=black shape=box]
+	vkp [label="vkp: 0" color=black shape=box]
+	vrb [label="vrb: 0" color=black shape=box]
+	vsh [label="vsh: 0" color=black shape=box]
+	vsk [label="vsk: 0" color=black shape=box]
+	vtg [label="vtg: 0" color=black shape=box]
+	vvt [label="vvt: 1" color=black shape=box]
+	vwb [label="vwb: 1" color=black shape=box]
+	wdq [label="wdq: 0" color=black shape=box]
+	wgp [label="wgp: 0" color=black shape=box]
+	whw [label="whw: 1" color=black shape=box]
+	wjj [label="wjj: 1" color=black shape=box]
+	wkn [label="wkn: 0" color=black shape=box]
+	wnb [label="wnb: 0" color=black shape=box]
+	wnd [label="wnd: 0" color=black shape=box]
+	wqr [label="wqr: 1" color=black shape=box]
+	wvc [label="wvc: 0" color=black shape=box]
+	wvh [label="wvh: 0" color=black shape=box]
+	wwm [label="wwm: 0" color=black shape=box]
+	x00 [label="x00: 1" color=green shape=box]
+	x01 [label="x01: 0" color=green shape=box]
+	x02 [label="x02: 1" color=green shape=box]
+	x03 [label="x03: 1" color=green shape=box]
+	x04 [label="x04: 0" color=green shape=box]
+	x05 [label="x05: 0" color=green shape=box]
+	x06 [label="x06: 1" color=green shape=box]
+	x07 [label="x07: 1" color=green shape=box]
+	x08 [label="x08: 0" color=green shape=box]
+	x09 [label="x09: 1" color=green shape=box]
+	x10 [label="x10: 1" color=green shape=box]
+	x11 [label="x11: 1" color=green shape=box]
+	x12 [label="x12: 1" color=green shape=box]
+	x13 [label="x13: 1" color=green shape=box]
+	x14 [label="x14: 1" color=green shape=box]
+	x15 [label="x15: 1" color=green shape=box]
+	x16 [label="x16: 1" color=green shape=box]
+	x17 [label="x17: 0" color=green shape=box]
+	x18 [label="x18: 0" color=green shape=box]
+	x19 [label="x19: 0" color=green shape=box]
+	x20 [label="x20: 0" color=green shape=box]
+	x21 [label="x21: 0" color=green shape=box]
+	x22 [label="x22: 0" color=green shape=box]
+	x23 [label="x23: 0" color=green shape=box]
+	x24 [label="x24: 0" color=green shape=box]
+	x25 [label="x25: 1" color=green shape=box]
+	x26 [label="x26: 1" color=green shape=box]
+	x27 [label="x27: 1" color=green shape=box]
+	x28 [label="x28: 1" color=green shape=box]
+	x29 [label="x29: 0" color=green shape=box]
+	x30 [label="x30: 1" color=green shape=box]
+	x31 [label="x31: 1" color=green shape=box]
+	x32 [label="x32: 0" color=green shape=box]
+	x33 [label="x33: 0" color=green shape=box]
+	x34 [label="x34: 1" color=green shape=box]
+	x35 [label="x35: 0" color=green shape=box]
+	x36 [label="x36: 1" color=green shape=box]
+	x37 [label="x37: 1" color=green shape=box]
+	x38 [label="x38: 0" color=green shape=box]
+	x39 [label="x39: 0" color=green shape=box]
+	x40 [label="x40: 1" color=green shape=box]
+	x41 [label="x41: 1" color=green shape=box]
+	x42 [label="x42: 0" color=green shape=box]
+	x43 [label="x43: 0" color=green shape=box]
+	x44 [label="x44: 1" color=green shape=box]
+	y00 [label="y00: 1" color=blue shape=box]
+	y01 [label="y01: 0" color=blue shape=box]
+	y02 [label="y02: 0" color=blue shape=box]
+	y03 [label="y03: 1" color=blue shape=box]
+	y04 [label="y04: 1" color=blue shape=box]
+	y05 [label="y05: 0" color=blue shape=box]
+	y06 [label="y06: 0" color=blue shape=box]
+	y07 [label="y07: 0" color=blue shape=box]
+	y08 [label="y08: 0" color=blue shape=box]
+	y09 [label="y09: 0" color=blue shape=box]
+	y10 [label="y10: 0" color=blue shape=box]
+	y11 [label="y11: 1" color=blue shape=box]
+	y12 [label="y12: 0" color=blue shape=box]
+	y13 [label="y13: 0" color=blue shape=box]
+	y14 [label="y14: 1" color=blue shape=box]
+	y15 [label="y15: 0" color=blue shape=box]
+	y16 [label="y16: 1" color=blue shape=box]
+	y17 [label="y17: 1" color=blue shape=box]
+	y18 [label="y18: 1" color=blue shape=box]
+	y19 [label="y19: 1" color=blue shape=box]
+	y20 [label="y20: 1" color=blue shape=box]
+	y21 [label="y21: 0" color=blue shape=box]
+	y22 [label="y22: 0" color=blue shape=box]
+	y23 [label="y23: 1" color=blue shape=box]
+	y24 [label="y24: 0" color=blue shape=box]
+	y25 [label="y25: 0" color=blue shape=box]
+	y26 [label="y26: 0" color=blue shape=box]
+	y27 [label="y27: 1" color=blue shape=box]
+	y28 [label="y28: 1" color=blue shape=box]
+	y29 [label="y29: 1" color=blue shape=box]
+	y30 [label="y30: 0" color=blue shape=box]
+	y31 [label="y31: 1" color=blue shape=box]
+	y32 [label="y32: 0" color=blue shape=box]
+	y33 [label="y33: 1" color=blue shape=box]
+	y34 [label="y34: 1" color=blue shape=box]
+	y35 [label="y35: 0" color=blue shape=box]
+	y36 [label="y36: 0" color=blue shape=box]
+	y37 [label="y37: 0" color=blue shape=box]
+	y38 [label="y38: 1" color=blue shape=box]
+	y39 [label="y39: 1" color=blue shape=box]
+	y40 [label="y40: 1" color=blue shape=box]
+	y41 [label="y41: 1" color=blue shape=box]
+	y42 [label="y42: 0" color=blue shape=box]
+	y43 [label="y43: 1" color=blue shape=box]
+	y44 [label="y44: 1" color=blue shape=box]
+	z00 [label="z00: 0" color=black shape=box]
+	z01 [label="z01: 1" color=black shape=box]
+	z02 [label="z02: 1" color=black shape=box]
+	z03 [label="z03: 0" color=black shape=box]
+	z04 [label="z04: 0" color=black shape=box]
+	z05 [label="z05: 1" color=black shape=box]
+	z06 [label="z06: 1" color=black shape=box]
+	z07 [label="z07: 1" color=black shape=box]
+	z08 [label="z08: 0" color=black shape=box]
+	z09 [label="z09: 1" color=black shape=box]
+	z10 [label="z10: 1" color=black shape=box]
+	z11 [label="z11: 0" color=black shape=box]
+	z12 [label="z12: 0" color=black shape=box]
+	z13 [label="z13: 0" color=black shape=box]
+	z14 [label="z14: 1" color=black shape=box]
+	z15 [label="z15: 0" color=black shape=box]
+	z16 [label="z16: 1" color=black shape=box]
+	z17 [label="z17: 0" color=black shape=box]
+	z18 [label="z18: 0" color=black shape=box]
+	z19 [label="z19: 0" color=black shape=box]
+	z20 [label="z20: 0" color=black shape=box]
+	z21 [label="z21: 1" color=black shape=box]
+	z22 [label="z22: 0" color=black shape=box]
+	z23 [label="z23: 1" color=black shape=box]
+	z24 [label="z24: 0" color=black shape=box]
+	z25 [label="z25: 1" color=black shape=box]
+	z26 [label="z26: 1" color=black shape=box]
+	z27 [label="z27: 0" color=black shape=box]
+	z28 [label="z28: 1" color=black shape=box]
+	z29 [label="z29: 0" color=black shape=box]
+	z30 [label="z30: 0" color=black shape=box]
+	z31 [label="z31: 1" color=black shape=box]
+	z32 [label="z32: 1" color=black shape=box]
+	z33 [label="z33: 1" color=black shape=box]
+	z34 [label="z34: 0" color=black shape=box]
+	z35 [label="z35: 1" color=black shape=box]
+	z36 [label="z36: 1" color=black shape=box]
+	z37 [label="z37: 1" color=black shape=box]
+	z38 [label="z38: 1" color=black shape=box]
+	z39 [label="z39: 1" color=black shape=box]
+	z40 [label="z40: 0" color=black shape=box]
+	z41 [label="z41: 1" color=black shape=box]
+	z42 [label="z42: 1" color=black shape=box]
+	z43 [label="z43: 1" color=black shape=box]
+	z44 [label="z44: 0" color=black shape=box]
+	z45 [label="z45: 1" color=black shape=box]
+	bfg_int [label="|" shape=circle]
+	nqw -- bfg_int
+	tdh -- bfg_int
+	bfg_int -- bfg
+	bkm_int [label="&" shape=invtriangle]
+	gnt -- bkm_int
+	hsh -- bkm_int
+	bkm_int -- bkm
+	bmh_int [label="&" shape=invtriangle]
+	y28 -- bmh_int
+	x28 -- bmh_int
+	bmh_int -- bmh
+	bnk_int [label="|" shape=circle]
+	pnt -- bnk_int
+	nwb -- bnk_int
+	bnk_int -- bnk
+	bpj_int [label="|" shape=circle]
+	pkb -- bpj_int
+	nvj -- bpj_int
+	bpj_int -- bpj
+	bsn_int [label="^" shape=diamond]
+	y31 -- bsn_int
+	x31 -- bsn_int
+	bsn_int -- bsn
+	bwr_int [label="&" shape=invtriangle]
+	y14 -- bwr_int
+	x14 -- bwr_int
+	bwr_int -- bwr
+	ccj_int [label="&" shape=invtriangle]
+	swf -- ccj_int
+	gmj -- ccj_int
+	ccj_int -- ccj
+	cdh_int [label="&" shape=invtriangle]
+	y17 -- cdh_int
+	x17 -- cdh_int
+	cdh_int -- cdh
+	cds_int [label="^" shape=diamond]
+	y38 -- cds_int
+	x38 -- cds_int
+	cds_int -- cds
+	chk_int [label="|" shape=circle]
+	rtw -- chk_int
+	dvc -- chk_int
+	chk_int -- chk
+	cjc_int [label="^" shape=diamond]
+	x08 -- cjc_int
+	y08 -- cjc_int
+	cjc_int -- cjc
+	cnq_int [label="^" shape=diamond]
+	x20 -- cnq_int
+	y20 -- cnq_int
+	cnq_int -- cnq
+	cpd_int [label="&" shape=invtriangle]
+	x10 -- cpd_int
+	y10 -- cpd_int
+	cpd_int -- cpd
+	cpp_int [label="&" shape=invtriangle]
+	y01 -- cpp_int
+	x01 -- cpp_int
+	cpp_int -- cpp
+	cwp_int [label="^" shape=diamond]
+	y04 -- cwp_int
+	x04 -- cwp_int
+	cwp_int -- cwp
+	dbr_int [label="&" shape=invtriangle]
+	rtc -- dbr_int
+	fkn -- dbr_int
+	dbr_int -- dbr
+	dct_int [label="&" shape=invtriangle]
+	y13 -- dct_int
+	x13 -- dct_int
+	dct_int -- dct
+	dgc_int [label="|" shape=circle]
+	grd -- dgc_int
+	dmw -- dgc_int
+	dgc_int -- dgc
+	djp_int [label="|" shape=circle]
+	hts -- djp_int
+	hqr -- djp_int
+	djp_int -- djp
+	dmh_int [label="&" shape=invtriangle]
+	cwp -- dmh_int
+	rsk -- dmh_int
+	dmh_int -- dmh
+	dmw_int [label="&" shape=invtriangle]
+	y25 -- dmw_int
+	x25 -- dmw_int
+	dmw_int -- dmw
+	dpr_int [label="^" shape=diamond]
+	y30 -- dpr_int
+	x30 -- dpr_int
+	dpr_int -- dpr
+	dqf_int [label="&" shape=invtriangle]
+	mvt -- dqf_int
+	jnw -- dqf_int
+	dqf_int -- dqf
+	dqk_int [label="^" shape=diamond]
+	y40 -- dqk_int
+	x40 -- dqk_int
+	dqk_int -- dqk
+	drc_int [label="|" shape=circle]
+	fcg -- drc_int
+	qvd -- drc_int
+	drc_int -- drc
+	dsn_int [label="&" shape=invtriangle]
+	x04 -- dsn_int
+	y04 -- dsn_int
+	dsn_int -- dsn
+	dvc_int [label="&" shape=invtriangle]
+	y22 -- dvc_int
+	x22 -- dvc_int
+	dvc_int -- dvc
+	dvg_int [label="&" shape=invtriangle]
+	fkp -- dvg_int
+	dqk -- dvg_int
+	dvg_int -- dvg
+	dwp_int [label="&" shape=invtriangle]
+	y24 -- dwp_int
+	x24 -- dwp_int
+	dwp_int -- dwp
+	fbv_int [label="&" shape=invtriangle]
+	x36 -- fbv_int
+	y36 -- fbv_int
+	fbv_int -- fbv
+	fcg_int [label="&" shape=invtriangle]
+	y42 -- fcg_int
+	x42 -- fcg_int
+	fcg_int -- fcg
+	fcm_int [label="^" shape=diamond]
+	x18 -- fcm_int
+	y18 -- fcm_int
+	fcm_int -- fcm
+	ffq_int [label="&" shape=invtriangle]
+	sjh -- ffq_int
+	fpd -- ffq_int
+	ffq_int -- ffq
+	fgc_int [label="|" shape=circle]
+	bkm -- fgc_int
+	bwr -- fgc_int
+	fgc_int -- fgc
+	fhp_int [label="^" shape=diamond]
+	y03 -- fhp_int
+	x03 -- fhp_int
+	fhp_int -- fhp
+	fkn_int [label="^" shape=diamond]
+	x02 -- fkn_int
+	y02 -- fkn_int
+	fkn_int -- fkn
+	fkp_int [label="|" shape=circle]
+	rtb -- fkp_int
+	fvv -- fkp_int
+	fkp_int -- fkp
+	fmw_int [label="^" shape=diamond]
+	y36 -- fmw_int
+	x36 -- fmw_int
+	fmw_int -- fmw
+	fnn_int [label="&" shape=invtriangle]
+	pdk -- fnn_int
+	fpp -- fnn_int
+	fnn_int -- fnn
+	fpd_int [label="^" shape=diamond]
+	x13 -- fpd_int
+	y13 -- fpd_int
+	fpd_int -- fpd
+	fpp_int [label="^" shape=diamond]
+	x10 -- fpp_int
+	y10 -- fpp_int
+	fpp_int -- fpp
+	fqp_int [label="&" shape=invtriangle]
+	x11 -- fqp_int
+	y11 -- fqp_int
+	fqp_int -- fqp
+	frn_int [label="&" shape=invtriangle]
+	qww -- frn_int
+	bnk -- frn_int
+	frn_int -- frn
+	fsp_int [label="^" shape=diamond]
+	y22 -- fsp_int
+	x22 -- fsp_int
+	fsp_int -- fsp
+	fvv_int [label="&" shape=invtriangle]
+	x39 -- fvv_int
+	y39 -- fvv_int
+	fvv_int -- fvv
+	gbf_int [label="&" shape=invtriangle]
+	x09 -- gbf_int
+	y09 -- gbf_int
+	gbf_int -- gbf
+	gfs_int [label="^" shape=diamond]
+	y41 -- gfs_int
+	x41 -- gfs_int
+	gfs_int -- gfs
+	ggg_int [label="|" shape=circle]
+	ndc -- ggg_int
+	gqn -- ggg_int
+	ggg_int -- ggg
+	ggp_int [label="|" shape=circle]
+	pbk -- ggp_int
+	sdq -- ggp_int
+	ggp_int -- ggp
+	gmj_int [label="|" shape=circle]
+	sjk -- gmj_int
+	mnm -- gmj_int
+	gmj_int -- gmj
+	gnt_int [label="|" shape=circle]
+	dct -- gnt_int
+	ffq -- gnt_int
+	gnt_int -- gnt
+	gqn_int [label="&" shape=invtriangle]
+	drc -- gqn_int
+	psg -- gqn_int
+	gqn_int -- gqn
+	grc_int [label="|" shape=circle]
+	ccj -- grc_int
+	dwp -- grc_int
+	grc_int -- grc
+	grd_int [label="&" shape=invtriangle]
+	grc -- grd_int
+	tqf -- grd_int
+	grd_int -- grd
+	grs_int [label="|" shape=circle]
+	tdw -- grs_int
+	ndp -- grs_int
+	grs_int -- grs
+	grv_int [label="|" shape=circle]
+	fbv -- grv_int
+	pqm -- grv_int
+	grv_int -- grv
+	gwg_int [label="^" shape=diamond]
+	y06 -- gwg_int
+	x06 -- gwg_int
+	gwg_int -- gwg
+	hbg_int [label="&" shape=invtriangle]
+	y37 -- hbg_int
+	x37 -- hbg_int
+	hbg_int -- hbg
+	hdf_int [label="&" shape=invtriangle]
+	mhh -- hdf_int
+	qdw -- hdf_int
+	hdf_int -- hdf
+	hdk_int [label="&" shape=invtriangle]
+	ssr -- hdk_int
+	vtg -- hdk_int
+	hdk_int -- hdk
+	hdt_int [label="|" shape=circle]
+	rnk -- hdt_int
+	mkq -- hdt_int
+	hdt_int -- hdt
+	hfj_int [label="|" shape=circle]
+	dvg -- hfj_int
+	vvt -- hfj_int
+	hfj_int -- hfj
+	hmn_int [label="&" shape=invtriangle]
+	y12 -- hmn_int
+	x12 -- hmn_int
+	hmn_int -- hmn
+	hqr_int [label="&" shape=invtriangle]
+	dgc -- hqr_int
+	vwb -- hqr_int
+	hqr_int -- hqr
+	hrv_int [label="&" shape=invtriangle]
+	x08 -- hrv_int
+	y08 -- hrv_int
+	hrv_int -- hrv
+	hsh_int [label="^" shape=diamond]
+	y14 -- hsh_int
+	x14 -- hsh_int
+	hsh_int -- hsh
+	hts_int [label="&" shape=invtriangle]
+	y26 -- hts_int
+	x26 -- hts_int
+	hts_int -- hts
+	jbf_int [label="&" shape=invtriangle]
+	jsd -- jbf_int
+	kbc -- jbf_int
+	jbf_int -- jbf
+	jfb_int [label="&" shape=invtriangle]
+	y00 -- jfb_int
+	x00 -- jfb_int
+	jfb_int -- jfb
+	jgt_int [label="&" shape=invtriangle]
+	y15 -- jgt_int
+	x15 -- jgt_int
+	jgt_int -- jgt
+	jhw_int [label="^" shape=diamond]
+	x17 -- jhw_int
+	y17 -- jhw_int
+	jhw_int -- jhw
+	jjg_int [label="|" shape=circle]
+	wgp -- jjg_int
+	ncj -- jjg_int
+	jjg_int -- jjg
+	jjj_int [label="^" shape=diamond]
+	y01 -- jjj_int
+	x01 -- jjj_int
+	jjj_int -- jjj
+	jmc_int [label="^" shape=diamond]
+	y42 -- jmc_int
+	x42 -- jmc_int
+	jmc_int -- jmc
+	jnk_int [label="&" shape=invtriangle]
+	y29 -- jnk_int
+	x29 -- jnk_int
+	jnk_int -- jnk
+	jnv_int [label="^" shape=diamond]
+	y37 -- jnv_int
+	x37 -- jnv_int
+	jnv_int -- jnv
+	jnw_int [label="|" shape=circle]
+	qkf -- jnw_int
+	pnf -- jnw_int
+	jnw_int -- jnw
+	jrm_int [label="^" shape=diamond]
+	x11 -- jrm_int
+	y11 -- jrm_int
+	jrm_int -- jrm
+	jsd_int [label="|" shape=circle]
+	sfr -- jsd_int
+	wkn -- jsd_int
+	jsd_int -- jsd
+	kbc_int [label="^" shape=diamond]
+	x28 -- kbc_int
+	y28 -- kbc_int
+	kbc_int -- kbc
+	kbw_int [label="|" shape=circle]
+	frn -- kbw_int
+	sgc -- kbw_int
+	kbw_int -- kbw
+	kjf_int [label="&" shape=invtriangle]
+	grv -- kjf_int
+	jnv -- kjf_int
+	kjf_int -- kjf
+	kqh_int [label="&" shape=invtriangle]
+	y30 -- kqh_int
+	x30 -- kqh_int
+	kqh_int -- kqh
+	mbt_int [label="&" shape=invtriangle]
+	rsw -- mbt_int
+	bfg -- mbt_int
+	mbt_int -- mbt
+	mfb_int [label="&" shape=invtriangle]
+	y31 -- mfb_int
+	x31 -- mfb_int
+	mfb_int -- mfb
+	mgr_int [label="|" shape=circle]
+	hdk -- mgr_int
+	qtc -- mgr_int
+	mgr_int -- mgr
+	mhh_int [label="^" shape=diamond]
+	x29 -- mhh_int
+	y29 -- mhh_int
+	mhh_int -- mhh
+	mht_int [label="^" shape=diamond]
+	y15 -- mht_int
+	x15 -- mht_int
+	mht_int -- mht
+	mkq_int [label="&" shape=invtriangle]
+	y05 -- mkq_int
+	x05 -- mkq_int
+	mkq_int -- mkq
+	mnm_int [label="&" shape=invtriangle]
+	chk -- mnm_int
+	tqk -- mnm_int
+	mnm_int -- mnm
+	mqr_int [label="|" shape=circle]
+	dqf -- mqr_int
+	wvh -- mqr_int
+	mqr_int -- mqr
+	msr_int [label="^" shape=diamond]
+	x12 -- msr_int
+	y12 -- msr_int
+	msr_int -- msr
+	mvt_int [label="^" shape=diamond]
+	y35 -- mvt_int
+	x35 -- mvt_int
+	mvt_int -- mvt
+	nbf_int [label="&" shape=invtriangle]
+	dpr -- nbf_int
+	nvv -- nbf_int
+	nbf_int -- nbf
+	ncj_int [label="&" shape=invtriangle]
+	hdt -- ncj_int
+	gwg -- ncj_int
+	ncj_int -- ncj
+	ndc_int [label="&" shape=invtriangle]
+	x43 -- ndc_int
+	y43 -- ndc_int
+	ndc_int -- ndc
+	ndp_int [label="&" shape=invtriangle]
+	x38 -- ndp_int
+	y38 -- ndp_int
+	ndp_int -- ndp
+	nqw_int [label="&" shape=invtriangle]
+	y20 -- nqw_int
+	x20 -- nqw_int
+	nqw_int -- nqw
+	nvj_int [label="&" shape=invtriangle]
+	hfj -- nvj_int
+	gfs -- nvj_int
+	nvj_int -- nvj
+	nvv_int [label="|" shape=circle]
+	jnk -- nvv_int
+	hdf -- nvv_int
+	nvv_int -- nvv
+	nwb_int [label="&" shape=invtriangle]
+	y18 -- nwb_int
+	x18 -- nwb_int
+	nwb_int -- nwb
+	nwr_int [label="&" shape=invtriangle]
+	mht -- nwr_int
+	fgc -- nwr_int
+	nwr_int -- nwr
+	pbk_int [label="&" shape=invtriangle]
+	shj -- pbk_int
+	jjg -- pbk_int
+	pbk_int -- pbk
+	pdk_int [label="|" shape=circle]
+	gbf -- pdk_int
+	ttm -- pdk_int
+	pdk_int -- pdk
+	pgd_int [label="&" shape=invtriangle]
+	wnd -- pgd_int
+	shs -- pgd_int
+	pgd_int -- pgd
+	pkb_int [label="&" shape=invtriangle]
+	y41 -- pkb_int
+	x41 -- pkb_int
+	pkb_int -- pkb
+	pnf_int [label="&" shape=invtriangle]
+	wnb -- pnf_int
+	qjh -- pnf_int
+	pnf_int -- pnf
+	pnt_int [label="&" shape=invtriangle]
+	qnk -- pnt_int
+	fcm -- pnt_int
+	pnt_int -- pnt
+	pqm_int [label="&" shape=invtriangle]
+	fmw -- pqm_int
+	mqr -- pqm_int
+	pqm_int -- pqm
+	prk_int [label="|" shape=circle]
+	qsm -- prk_int
+	pgd -- prk_int
+	prk_int -- prk
+	psg_int [label="^" shape=diamond]
+	y43 -- psg_int
+	x43 -- psg_int
+	psg_int -- psg
+	psp_int [label="|" shape=circle]
+	dbr -- psp_int
+	vrb -- psp_int
+	psp_int -- psp
+	pss_int [label="&" shape=invtriangle]
+	jfb -- pss_int
+	jjj -- pss_int
+	pss_int -- pss
+	pwh_int [label="&" shape=invtriangle]
+	x33 -- pwh_int
+	y33 -- pwh_int
+	pwh_int -- pwh
+	qdw_int [label="|" shape=circle]
+	jbf -- qdw_int
+	bmh -- qdw_int
+	qdw_int -- qdw
+	qhs_int [label="&" shape=invtriangle]
+	x44 -- qhs_int
+	y44 -- qhs_int
+	qhs_int -- qhs
+	qjh_int [label="^" shape=diamond]
+	x34 -- qjh_int
+	y34 -- qjh_int
+	qjh_int -- qjh
+	qkf_int [label="&" shape=invtriangle]
+	x34 -- qkf_int
+	y34 -- qkf_int
+	qkf_int -- qkf
+	qnh_int [label="&" shape=invtriangle]
+	msr -- qnh_int
+	rfj -- qnh_int
+	qnh_int -- qnh
+	qnk_int [label="|" shape=circle]
+	cdh -- qnk_int
+	wjj -- qnk_int
+	qnk_int -- qnk
+	qsm_int [label="&" shape=invtriangle]
+	x16 -- qsm_int
+	y16 -- qsm_int
+	qsm_int -- qsm
+	qtc_int [label="&" shape=invtriangle]
+	x32 -- qtc_int
+	y32 -- qtc_int
+	qtc_int -- qtc
+	qvd_int [label="&" shape=invtriangle]
+	bpj -- qvd_int
+	jmc -- qvd_int
+	qvd_int -- qvd
+	qww_int [label="^" shape=diamond]
+	y19 -- qww_int
+	x19 -- qww_int
+	qww_int -- qww
+	rfj_int [label="|" shape=circle]
+	fqp -- rfj_int
+	rng -- rfj_int
+	rfj_int -- rfj
+	rkv_int [label="&" shape=invtriangle]
+	x21 -- rkv_int
+	y21 -- rkv_int
+	rkv_int -- rkv
+	rng_int [label="&" shape=invtriangle]
+	jrm -- rng_int
+	tfh -- rng_int
+	rng_int -- rng
+	rnk_int [label="&" shape=invtriangle]
+	tsw -- rnk_int
+	wwm -- rnk_int
+	rnk_int -- rnk
+	rrc_int [label="|" shape=circle]
+	kqh -- rrc_int
+	nbf -- rrc_int
+	rrc_int -- rrc
+	rsk_int [label="|" shape=circle]
+	ttc -- rsk_int
+	vkp -- rsk_int
+	rsk_int -- rsk
+	rsw_int [label="^" shape=diamond]
+	x21 -- rsw_int
+	y21 -- rsw_int
+	rsw_int -- rsw
+	rtb_int [label="&" shape=invtriangle]
+	whw -- rtb_int
+	grs -- rtb_int
+	rtb_int -- rtb
+	rtc_int [label="|" shape=circle]
+	cpp -- rtc_int
+	pss -- rtc_int
+	rtc_int -- rtc
+	rtw_int [label="&" shape=invtriangle]
+	tmd -- rtw_int
+	fsp -- rtw_int
+	rtw_int -- rtw
+	sdb_int [label="|" shape=circle]
+	hbg -- sdb_int
+	kjf -- sdb_int
+	sdb_int -- sdb
+	sdq_int [label="&" shape=invtriangle]
+	y07 -- sdq_int
+	x07 -- sdq_int
+	sdq_int -- sdq
+	sfr_int [label="&" shape=invtriangle]
+	y27 -- sfr_int
+	x27 -- sfr_int
+	sfr_int -- sfr
+	sgc_int [label="&" shape=invtriangle]
+	y19 -- sgc_int
+	x19 -- sgc_int
+	sgc_int -- sgc
+	shj_int [label="^" shape=diamond]
+	y07 -- shj_int
+	x07 -- shj_int
+	shj_int -- shj
+	shs_int [label="|" shape=circle]
+	nwr -- shs_int
+	jgt -- shs_int
+	shs_int -- shs
+	sjh_int [label="|" shape=circle]
+	hmn -- sjh_int
+	qnh -- sjh_int
+	sjh_int -- sjh
+	sjk_int [label="&" shape=invtriangle]
+	x23 -- sjk_int
+	y23 -- sjk_int
+	sjk_int -- sjk
+	ssr_int [label="|" shape=circle]
+	mfb -- ssr_int
+	vfs -- ssr_int
+	ssr_int -- ssr
+	swf_int [label="^" shape=diamond]
+	y24 -- swf_int
+	x24 -- swf_int
+	swf_int -- swf
+	tdh_int [label="&" shape=invtriangle]
+	cnq -- tdh_int
+	kbw -- tdh_int
+	tdh_int -- tdh
+	tdw_int [label="&" shape=invtriangle]
+	cds -- tdw_int
+	sdb -- tdw_int
+	tdw_int -- tdw
+	tfh_int [label="|" shape=circle]
+	fnn -- tfh_int
+	cpd -- tfh_int
+	tfh_int -- tfh
+	tmd_int [label="|" shape=circle]
+	mbt -- tmd_int
+	rkv -- tmd_int
+	tmd_int -- tmd
+	tqf_int [label="^" shape=diamond]
+	y25 -- tqf_int
+	x25 -- tqf_int
+	tqf_int -- tqf
+	tqk_int [label="^" shape=diamond]
+	x23 -- tqk_int
+	y23 -- tqk_int
+	tqk_int -- tqk
+	tsw_int [label="|" shape=circle]
+	dmh -- tsw_int
+	dsn -- tsw_int
+	tsw_int -- tsw
+	ttc_int [label="&" shape=invtriangle]
+	x03 -- ttc_int
+	y03 -- ttc_int
+	ttc_int -- ttc
+	ttm_int [label="&" shape=invtriangle]
+	vkd -- ttm_int
+	wqr -- ttm_int
+	ttm_int -- ttm
+	vfc_int [label="^" shape=diamond]
+	y33 -- vfc_int
+	x33 -- vfc_int
+	vfc_int -- vfc
+	vfs_int [label="&" shape=invtriangle]
+	rrc -- vfs_int
+	bsn -- vfs_int
+	vfs_int -- vfs
+	vkd_int [label="|" shape=circle]
+	wvc -- vkd_int
+	hrv -- vkd_int
+	vkd_int -- vkd
+	vkm_int [label="&" shape=invtriangle]
+	ggg -- vkm_int
+	wdq -- vkm_int
+	vkm_int -- vkm
+	vkp_int [label="&" shape=invtriangle]
+	fhp -- vkp_int
+	psp -- vkp_int
+	vkp_int -- vkp
+	vrb_int [label="&" shape=invtriangle]
+	x02 -- vrb_int
+	y02 -- vrb_int
+	vrb_int -- vrb
+	vsh_int [label="&" shape=invtriangle]
+	mgr -- vsh_int
+	vfc -- vsh_int
+	vsh_int -- vsh
+	vsk_int [label="^" shape=diamond]
+	x27 -- vsk_int
+	y27 -- vsk_int
+	vsk_int -- vsk
+	vtg_int [label="^" shape=diamond]
+	x32 -- vtg_int
+	y32 -- vtg_int
+	vtg_int -- vtg
+	vvt_int [label="&" shape=invtriangle]
+	x40 -- vvt_int
+	y40 -- vvt_int
+	vvt_int -- vvt
+	vwb_int [label="^" shape=diamond]
+	y26 -- vwb_int
+	x26 -- vwb_int
+	vwb_int -- vwb
+	wdq_int [label="^" shape=diamond]
+	x44 -- wdq_int
+	y44 -- wdq_int
+	wdq_int -- wdq
+	wgp_int [label="&" shape=invtriangle]
+	y06 -- wgp_int
+	x06 -- wgp_int
+	wgp_int -- wgp
+	whw_int [label="^" shape=diamond]
+	y39 -- whw_int
+	x39 -- whw_int
+	whw_int -- whw
+	wjj_int [label="&" shape=invtriangle]
+	jhw -- wjj_int
+	prk -- wjj_int
+	wjj_int -- wjj
+	wkn_int [label="&" shape=invtriangle]
+	vsk -- wkn_int
+	djp -- wkn_int
+	wkn_int -- wkn
+	wnb_int [label="|" shape=circle]
+	pwh -- wnb_int
+	vsh -- wnb_int
+	wnb_int -- wnb
+	wnd_int [label="^" shape=diamond]
+	x16 -- wnd_int
+	y16 -- wnd_int
+	wnd_int -- wnd
+	wqr_int [label="^" shape=diamond]
+	y09 -- wqr_int
+	x09 -- wqr_int
+	wqr_int -- wqr
+	wvc_int [label="&" shape=invtriangle]
+	ggp -- wvc_int
+	cjc -- wvc_int
+	wvc_int -- wvc
+	wvh_int [label="&" shape=invtriangle]
+	x35 -- wvh_int
+	y35 -- wvh_int
+	wvh_int -- wvh
+	wwm_int [label="^" shape=diamond]
+	x05 -- wwm_int
+	y05 -- wwm_int
+	wwm_int -- wwm
+	z00_int [label="^" shape=diamond]
+	x00 -- z00_int
+	y00 -- z00_int
+	z00_int -- z00
+	z01_int [label="^" shape=diamond]
+	jjj -- z01_int
+	jfb -- z01_int
+	z01_int -- z01
+	z02_int [label="^" shape=diamond]
+	rtc -- z02_int
+	fkn -- z02_int
+	z02_int -- z02
+	z03_int [label="^" shape=diamond]
+	psp -- z03_int
+	fhp -- z03_int
+	z03_int -- z03
+	z04_int [label="^" shape=diamond]
+	cwp -- z04_int
+	rsk -- z04_int
+	z04_int -- z04
+	z05_int [label="^" shape=diamond]
+	tsw -- z05_int
+	wwm -- z05_int
+	z05_int -- z05
+	z06_int [label="^" shape=diamond]
+	hdt -- z06_int
+	gwg -- z06_int
+	z06_int -- z06
+	z07_int [label="^" shape=diamond]
+	jjg -- z07_int
+	shj -- z07_int
+	z07_int -- z07
+	z08_int [label="^" shape=diamond]
+	cjc -- z08_int
+	ggp -- z08_int
+	z08_int -- z08
+	z09_int [label="^" shape=diamond]
+	vkd -- z09_int
+	wqr -- z09_int
+	z09_int -- z09
+	z10_int [label="^" shape=diamond]
+	pdk -- z10_int
+	fpp -- z10_int
+	z10_int -- z10
+	z11_int [label="^" shape=diamond]
+	jrm -- z11_int
+	tfh -- z11_int
+	z11_int -- z11
+	z12_int [label="^" shape=diamond]
+	rfj -- z12_int
+	msr -- z12_int
+	z12_int -- z12
+	z13_int [label="^" shape=diamond]
+	sjh -- z13_int
+	fpd -- z13_int
+	z13_int -- z13
+	z14_int [label="^" shape=diamond]
+	hsh -- z14_int
+	gnt -- z14_int
+	z14_int -- z14
+	z15_int [label="^" shape=diamond]
+	mht -- z15_int
+	fgc -- z15_int
+	z15_int -- z15
+	z16_int [label="^" shape=diamond]
+	shs -- z16_int
+	wnd -- z16_int
+	z16_int -- z16
+	z17_int [label="^" shape=diamond]
+	prk -- z17_int
+	jhw -- z17_int
+	z17_int -- z17
+	z18_int [label="^" shape=diamond]
+	fcm -- z18_int
+	qnk -- z18_int
+	z18_int -- z18
+	z19_int [label="^" shape=diamond]
+	bnk -- z19_int
+	qww -- z19_int
+	z19_int -- z19
+	z20_int [label="^" shape=diamond]
+	kbw -- z20_int
+	cnq -- z20_int
+	z20_int -- z20
+	z21_int [label="^" shape=diamond]
+	bfg -- z21_int
+	rsw -- z21_int
+	z21_int -- z21
+	z22_int [label="^" shape=diamond]
+	fsp -- z22_int
+	tmd -- z22_int
+	z22_int -- z22
+	z23_int [label="^" shape=diamond]
+	tqk -- z23_int
+	chk -- z23_int
+	z23_int -- z23
+	z24_int [label="^" shape=diamond]
+	gmj -- z24_int
+	swf -- z24_int
+	z24_int -- z24
+	z25_int [label="^" shape=diamond]
+	tqf -- z25_int
+	grc -- z25_int
+	z25_int -- z25
+	z26_int [label="^" shape=diamond]
+	vwb -- z26_int
+	dgc -- z26_int
+	z26_int -- z26
+	z27_int [label="^" shape=diamond]
+	vsk -- z27_int
+	djp -- z27_int
+	z27_int -- z27
+	z28_int [label="^" shape=diamond]
+	kbc -- z28_int
+	jsd -- z28_int
+	z28_int -- z28
+	z29_int [label="^" shape=diamond]
+	qdw -- z29_int
+	mhh -- z29_int
+	z29_int -- z29
+	z30_int [label="^" shape=diamond]
+	dpr -- z30_int
+	nvv -- z30_int
+	z30_int -- z30
+	z31_int [label="^" shape=diamond]
+	bsn -- z31_int
+	rrc -- z31_int
+	z31_int -- z31
+	z32_int [label="^" shape=diamond]
+	vtg -- z32_int
+	ssr -- z32_int
+	z32_int -- z32
+	z33_int [label="^" shape=diamond]
+	vfc -- z33_int
+	mgr -- z33_int
+	z33_int -- z33
+	z34_int [label="^" shape=diamond]
+	wnb -- z34_int
+	qjh -- z34_int
+	z34_int -- z34
+	z35_int [label="^" shape=diamond]
+	mvt -- z35_int
+	jnw -- z35_int
+	z35_int -- z35
+	z36_int [label="^" shape=diamond]
+	mqr -- z36_int
+	fmw -- z36_int
+	z36_int -- z36
+	z37_int [label="^" shape=diamond]
+	grv -- z37_int
+	jnv -- z37_int
+	z37_int -- z37
+	z38_int [label="^" shape=diamond]
+	sdb -- z38_int
+	cds -- z38_int
+	z38_int -- z38
+	z39_int [label="^" shape=diamond]
+	grs -- z39_int
+	whw -- z39_int
+	z39_int -- z39
+	z40_int [label="^" shape=diamond]
+	fkp -- z40_int
+	dqk -- z40_int
+	z40_int -- z40
+	z41_int [label="^" shape=diamond]
+	hfj -- z41_int
+	gfs -- z41_int
+	z41_int -- z41
+	z42_int [label="^" shape=diamond]
+	jmc -- z42_int
+	bpj -- z42_int
+	z42_int -- z42
+	z43_int [label="^" shape=diamond]
+	psg -- z43_int
+	drc -- z43_int
+	z43_int -- z43
+	z44_int [label="^" shape=diamond]
+	ggg -- z44_int
+	wdq -- z44_int
+	z44_int -- z44
+	z45_int [label="|" shape=circle]
+	qhs -- z45_int
+	vkm -- z45_int
+	z45_int -- z45
+}
